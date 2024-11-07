@@ -1,0 +1,21 @@
+<div class="page">
+  <div class="bg1"></div>
+  <div class="bg2"></div>
+  <span class="login-label">ВХІД</span>
+  <form>
+    <p-inputGroup>
+      <p-inputGroupAddon>
+        <i class="fa-solid fa-envelope"></i>
+      </p-inputGroupAddon>
+      <input pInputText placeholder="Електронна пошта" />
+    </p-inputGroup>
+    <p-inputGroup>
+      <p-inputGroupAddon>
+        <i class="fa-solid fa-lock"></i>
+      </p-inputGroupAddon>
+      <input pInputText type="password" placeholder="Пароль" />
+    </p-inputGroup>
+    <button pButton class="button-login" label="Увійти"></button>
+    <button pButton class="button-register" [text]="true" label="Реєстрація" routerLink="/register"></button>
+  </form>
+</div>
