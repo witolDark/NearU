@@ -2,32 +2,32 @@
   <div class="bg1"></div>
   <div class="bg2"></div>
   <span class="login-label">РЕЄСТРАЦІЯ</span>
-  <form>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <p-inputGroup>
-      <p-inputGroupAddon>
-        <i class="fa-solid fa-envelope"></i>
-      </p-inputGroupAddon>
-      <input pInputText type="email" placeholder="Електронна пошта" />
+<!--      <p-inputGroupAddon>-->
+<!--        <i class="fa-solid fa-envelope"></i>-->
+<!--      </p-inputGroupAddon>-->
+      <input pInputText formControlName="email" type="email" placeholder="Електронна пошта" />
     </p-inputGroup>
     <p-inputGroup>
-      <p-inputGroupAddon>
-        <i class="fa-solid fa-user"></i>
-      </p-inputGroupAddon>
-      <input pInputText type="text" placeholder="Ім'я" />
+<!--      <p-inputGroupAddon>-->
+<!--        <i class="fa-solid fa-user"></i>-->
+<!--      </p-inputGroupAddon>-->
+      <input pInputText formControlName="name" type="text" placeholder="Ім'я" />
     </p-inputGroup>
     <p-inputGroup>
-      <p-inputGroupAddon>
-        <i class="fa-solid fa-lock"></i>
-      </p-inputGroupAddon>
-      <input pInputText type="password" placeholder="Пароль" />
+<!--      <p-inputGroupAddon>-->
+<!--        <i class="fa-solid fa-lock"></i>-->
+<!--      </p-inputGroupAddon>-->
+      <input pInputText formControlName="password" type="password" placeholder="Пароль" />
     </p-inputGroup>
     <p-inputGroup>
-      <p-inputGroupAddon>
-        <i class="fa-solid fa-lock"></i>
-      </p-inputGroupAddon>
-      <input pInputText type="password" placeholder="Підтвердження паролю" />
+<!--      <p-inputGroupAddon>-->
+<!--        <i class="fa-solid fa-lock"></i>-->
+<!--      </p-inputGroupAddon>-->
+      <input pInputText formControlName="password_confirmation" type="password" placeholder="Підтвердження паролю" />
     </p-inputGroup>
-    <button pButton class="button-login" label="Зареєструватись"></button>
+    <button pButton type="submit" class="button-login" label="Зареєструватись"></button>
     <span class="login-rel">
       <span>Вже зареєстровані?</span>
       <a routerLink="/login">Увійти</a>
