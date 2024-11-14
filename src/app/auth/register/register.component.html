@@ -27,7 +27,7 @@
 <!--      </p-inputGroupAddon>-->
       <input pInputText formControlName="password_confirmation" type="password" placeholder="Підтвердження паролю" />
     </p-inputGroup>
-    <button pButton type="submit" class="button-login" label="Зареєструватись"></button>
+    <button pButton class="button-login" label="Зареєструватись" [disabled]="form.invalid"></button>
     <span class="login-rel">
       <span>Вже зареєстровані?</span>
       <a routerLink="/login">Увійти</a>
