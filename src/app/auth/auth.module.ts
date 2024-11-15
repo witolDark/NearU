@@ -10,12 +10,15 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {InputTextModule} from 'primeng/inputtext';
 import {AuthRoutingModule} from './auth-routing.module';
 import {provideHttpClient} from '@angular/common/http';
+import { EmailConfirmedComponent } from './email-confirmed/email-confirmed.component';
+import {FlexLayoutModule} from '@ngbracket/ngx-layout';
 
 
 @NgModule({
   declarations: [
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    EmailConfirmedComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +28,8 @@ import {provideHttpClient} from '@angular/common/http';
     RouterLink,
     ReactiveFormsModule,
     InputTextModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    FlexLayoutModule
   ],
   providers: [
     provideHttpClient()
