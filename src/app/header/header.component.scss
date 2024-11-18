@@ -1,5 +1,6 @@
 nav {
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -7,10 +8,17 @@ nav {
   letter-spacing: 1px;
   font-weight: 800;
   padding: 0 20px;
+  background: rgb(61, 255, 255);
+  background: linear-gradient(90deg, rgba(61, 255, 255, 0.2) 0%, rgba(0, 26, 255, 0.2) 100%);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .last-name {
   color: dodgerblue;
   font-weight: 800;
   margin-left: 3px;
+}
+
+p-avatar {
+  user-select: none;
 }

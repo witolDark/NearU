@@ -13,6 +13,7 @@ import {CardComponent} from './shared/components/card/card.component';
 import {CardModule} from 'primeng/card';
 import {ReactiveFormsModule} from "@angular/forms";
 import {provideHttpClient} from '@angular/common/http';
+import {FlexLayoutModule} from '@ngbracket/ngx-layout';
 
 @NgModule({
   declarations: [
@@ -30,11 +31,12 @@ import {provideHttpClient} from '@angular/common/http';
     InputTextModule,
     Button,
     CardModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FlexLayoutModule
   ],
   providers: [
     provideClientHydration(),
-    provideHttpClient()
+    provideHttpClient(),
   ],
   bootstrap: [AppComponent]
 })
