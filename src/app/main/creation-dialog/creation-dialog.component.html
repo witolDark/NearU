@@ -1,0 +1,43 @@
+<p-dialog header="Нова подія" [modal]="true" [(visible)]="visible">
+  <div class="wrapper" fxLayout="column" fxLayoutGap="7px">
+    <div class="name-date-row" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
+      <p-floatLabel class="event-name">
+        <input class="event-name-inp"  id="name" type="text" pInputText [(ngModel)]="value">
+        <label class="event-name-inp" for="name">Назва</label>
+      </p-floatLabel>
+      <p-floatLabel class="date">
+        <p-calendar
+          [(ngModel)]="rangeDates"
+          selectionMode="range"
+          [readonlyInput]="true"
+          inputId="datepicker"
+          [style]="{width: '100%'}"
+          [panelStyle]="{'width': '200px', 'height': '300px', 'font-size': '0.8rem !important'}">
+        </p-calendar>
+        <label for="datepicker">Дата</label>
+      </p-floatLabel>
+    </div>
+    <p-divider></p-divider>
+    <div class="ticket-row" fxLayout="row" fxLayoutAlign="space-between center">
+      <span fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="7px">
+        <p-checkbox [(ngModel)]="ticketChecked" [binary]="true" inputId="binary"/>
+        <label class="checkbox-label" for="binary">Участь за білетом</label>
+      </span>
+      @if (this.ticketChecked) {
+        <p-floatLabel class="ticket-info">
+          <input class="ticket-info-inp" id="ticketInfo" type="text" pInputText [(ngModel)]="value">
+          <label class="ticket-info-lbl" for="ticketInfo">Де придбати</label>
+        </p-floatLabel>
+      }
+    </div>
+    <p-divider></p-divider>
+    <div class="editor-row" fxFlex="1 auto" style="height: 100%;">
+      <p-editor [(ngModel)]="text" [style]="{ height: '250px' }"/>
+    </div>
+    <p-divider></p-divider>
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+      <button pButton class="dialog-btn" label="Скасувати" severity="secondary"></button>
+      <button pButton class="dialog-btn" label="Додати"></button>
+    </div>
+  </div>
+</p-dialog>
