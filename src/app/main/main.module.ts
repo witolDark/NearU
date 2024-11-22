@@ -7,12 +7,21 @@ import {MainRoutingModule} from './main-routing.module';
 import {Button, ButtonDirective} from 'primeng/button';
 import {FlexLayoutModule} from '@ngbracket/ngx-layout';
 import {DividerModule} from "primeng/divider";
+import { CreationDialogComponent } from './creation-dialog/creation-dialog.component';
+import {DialogModule} from 'primeng/dialog';
+import {FloatLabelModule} from 'primeng/floatlabel';
+import {InputTextModule} from 'primeng/inputtext';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {CheckboxModule} from 'primeng/checkbox';
+import {CalendarModule} from 'primeng/calendar';
+import {EditorModule} from 'primeng/editor';
 
 
 @NgModule({
   declarations: [
     ProfileComponent,
-    EventsComponent
+    EventsComponent,
+    CreationDialogComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +29,15 @@ import {DividerModule} from "primeng/divider";
     Button,
     FlexLayoutModule,
     ButtonDirective,
-    DividerModule
+    DividerModule,
+    DialogModule,
+    FloatLabelModule,
+    InputTextModule,
+    FormsModule,
+    CheckboxModule,
+    CalendarModule,
+    ReactiveFormsModule,
+    EditorModule
   ],
   providers: [
     provideHttpClient()

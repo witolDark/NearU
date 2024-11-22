@@ -14,6 +14,7 @@ import {CardModule} from 'primeng/card';
 import {ReactiveFormsModule} from "@angular/forms";
 import {provideHttpClient} from '@angular/common/http';
 import {FlexLayoutModule} from '@ngbracket/ngx-layout';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {FlexLayoutModule} from '@ngbracket/ngx-layout';
     Button,
     CardModule,
     ReactiveFormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    BrowserAnimationsModule
   ],
   providers: [
     provideClientHydration(),
