@@ -1,0 +1,65 @@
+.page {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.bg1 {
+  height: 500px;
+  width: 100%;
+  background: rgb(61,255,255);
+  background: linear-gradient(90deg, rgba(61,255,255,0.2) 0%, rgba(0,26,255,0.2) 100%);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.bg2 {
+  width: 100%;
+  flex: 1;
+}
+
+.profile-label {
+  font-size: 70px;
+  color: white;
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  background: #fff;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.profile-input {
+  width: 350px;
+  height: 50px;
+  border: 2px black solid;
+  border-radius: 0;
+  padding: 10px;
+  font-size: 15px;
+}
+
+.save-btn {
+  font-size: 20px;
+  height: 50px;
+  width: 350px;
+  background: greenyellow;
+  color: white;
+  border: none;
+  font-weight: bold;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  transition: box-shadow 0.3s ease, background 0.3s ease, transform 0.3s ease;
+}
+
+.save-btn:hover {
+  box-shadow: rgba(149, 157, 165, 0.6) 0px 8px 24px;
+  background: limegreen;
+  transform: scale(1.05);
+}

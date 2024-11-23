@@ -7,7 +7,7 @@ import {MainRoutingModule} from './main-routing.module';
 import {Button, ButtonDirective} from 'primeng/button';
 import {FlexLayoutModule} from '@ngbracket/ngx-layout';
 import {DividerModule} from "primeng/divider";
-import { CreationDialogComponent } from './creation-dialog/creation-dialog.component';
+import {CreationDialogComponent} from './creation-dialog/creation-dialog.component';
 import {DialogModule} from 'primeng/dialog';
 import {FloatLabelModule} from 'primeng/floatlabel';
 import {InputTextModule} from 'primeng/inputtext';

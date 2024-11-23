@@ -1,38 +1,44 @@
 <p-dialog header="Нова подія" [modal]="true" [(visible)]="visible">
-  <div class="wrapper" fxLayout="column" fxLayoutGap="7px">
-    <div class="name-date-row" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
+  <div [formGroup]="form" class="wrapper" fxLayout="column" fxLayoutGap="7px">
+    <div class="elem-row" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
       <p-floatLabel class="event-name">
-        <input class="event-name-inp"  id="name" type="text" pInputText [(ngModel)]="value">
+        <input formControlName="name" class="event-name-inp" id="name" type="text" pInputText>
         <label class="event-name-inp" for="name">Назва</label>
       </p-floatLabel>
       <p-floatLabel class="date">
         <p-calendar
-          [(ngModel)]="rangeDates"
+          formControlName="rangeDates"
           selectionMode="range"
           [readonlyInput]="true"
           inputId="datepicker"
-          [style]="{width: '100%'}"
-          [panelStyle]="{'width': '200px', 'height': '300px', 'font-size': '0.8rem !important'}">
+          [style]="{width: '100%'}">
         </p-calendar>
         <label for="datepicker">Дата</label>
       </p-floatLabel>
     </div>
     <p-divider></p-divider>
-    <div class="ticket-row" fxLayout="row" fxLayoutAlign="space-between center">
+    <div class="elem-row" fxLayout="row" fxLayoutAlign="space-between center">
       <span fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="7px">
-        <p-checkbox [(ngModel)]="ticketChecked" [binary]="true" inputId="binary"/>
+        <p-checkbox formControlName="ticketChecked" [binary]="true" inputId="binary"/>
         <label class="checkbox-label" for="binary">Участь за білетом</label>
       </span>
-      @if (this.ticketChecked) {
+      @if (this.form.value.ticketChecked) {
         <p-floatLabel class="ticket-info">
-          <input class="ticket-info-inp" id="ticketInfo" type="text" pInputText [(ngModel)]="value">
+          <input formControlName="ticketLink" class="ticket-info-inp" id="ticketInfo" type="text" pInputText>
           <label class="ticket-info-lbl" for="ticketInfo">Де придбати</label>
         </p-floatLabel>
       }
     </div>
     <p-divider></p-divider>
+    <div class="elem-row" fxLayout="row" fxLayoutAlign="start center">
+      <p-floatLabel class="location-inp">
+        <input formControlName="location" class="location-inp" id="location" type="text" pInputText>
+        <label class="location-inp" for="location">Локація</label>
+      </p-floatLabel>
+    </div>
+    <p-divider></p-divider>
     <div class="editor-row" fxFlex="1 auto" style="height: 100%;">
-      <p-editor [(ngModel)]="text" [style]="{ height: '250px' }"/>
+      <p-editor formControlName="description" [style]="{ height: '150px' }"/>
     </div>
     <p-divider></p-divider>
     <div fxLayout="row" fxLayoutAlign="space-between center">

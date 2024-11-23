@@ -23,7 +23,12 @@
 
 :host ::ng-deep {
   .p-datepicker-group {
-    z-index: 999;
+    td {
+      font-size: 15px;
+      width: 10px;
+      height: 10px;
+      padding: 0;
+    }
   }
 }
 
@@ -32,7 +37,11 @@
   user-select: none;
 }
 
-.name-date-row, .ticket-row {
+.location-inp {
+  width: 100%;
+}
+
+.elem-row {
   min-height: 44px;
 }
 

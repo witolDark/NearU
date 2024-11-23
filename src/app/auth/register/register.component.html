@@ -4,33 +4,21 @@
   <span class="login-label">РЕЄСТРАЦІЯ</span>
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <p-inputGroup>
-<!--      <p-inputGroupAddon>-->
-<!--        <i class="fa-solid fa-envelope"></i>-->
-<!--      </p-inputGroupAddon>-->
       <input pInputText formControlName="email" type="email" placeholder="Електронна пошта" />
     </p-inputGroup>
     <p-inputGroup>
-<!--      <p-inputGroupAddon>-->
-<!--        <i class="fa-solid fa-user"></i>-->
-<!--      </p-inputGroupAddon>-->
       <input pInputText formControlName="name" type="text" placeholder="Ім'я" />
     </p-inputGroup>
     <p-inputGroup>
-<!--      <p-inputGroupAddon>-->
-<!--        <i class="fa-solid fa-lock"></i>-->
-<!--      </p-inputGroupAddon>-->
       <input pInputText formControlName="password" type="password" placeholder="Пароль" />
     </p-inputGroup>
     <p-inputGroup>
-<!--      <p-inputGroupAddon>-->
-<!--        <i class="fa-solid fa-lock"></i>-->
-<!--      </p-inputGroupAddon>-->
       <input pInputText formControlName="password_confirmation" type="password" placeholder="Підтвердження паролю" />
     </p-inputGroup>
     <button pButton class="button-login" label="Зареєструватись" [disabled]="form.invalid"></button>
     <span class="login-rel">
       <span>Вже зареєстровані?</span>
-      <a routerLink="/login">Увійти</a>
+      <a routerLink="/auth/login">Увійти</a>
     </span>
   </form>
 </div>

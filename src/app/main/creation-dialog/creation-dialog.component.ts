@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
-import {FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {AuthService} from '../../shared/services/auth/auth.service';
+import {EventService} from '../../shared/services/event/event.service';
 
 @Component({
   selector: 'app-creation-dialog',
@@ -7,13 +9,22 @@ import {FormGroup} from '@angular/forms';
   styleUrl: './creation-dialog.component.scss'
 })
 export class CreationDialogComponent {
-  visible = false;
-  rangeDates: Date[] | undefined;
-  ticketChecked = false;
-  text = '';
-  value: string = ''
+  constructor(private eventService: EventService) {}
 
-  form = new FormGroup({})
+  visible = false;
+
+  form = new FormGroup({
+    name: new FormControl('', Validators.required),
+    rangeDates: new FormControl('', Validators.required),
+    ticketChecked: new FormControl(false),
+    ticketLink: new FormControl(''),
+    location: new FormControl('', Validators.required),
+    description: new FormControl('')
+  })
+
+  sendEvent() {
+    this.eventService.sendEvent();
+  }
 
   showDialog() {
     this.visible = true;
