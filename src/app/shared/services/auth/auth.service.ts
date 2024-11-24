@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {RegistrationPayload} from '../../models/registration-payload';
 import {HttpClient} from '@angular/common/http';
-import {tap} from 'rxjs';
+import {map, Observable, of, tap} from 'rxjs';
 import {FormControl, ɵValue} from '@angular/forms';
 
 @Injectable({
@@ -10,6 +10,11 @@ import {FormControl, ɵValue} from '@angular/forms';
 export class AuthService {
   registrationUrl = 'http://localhost:5000/api/registration'
 
+  accessTokenKey: string = '';
+  refreshTokenKey: string = '';
+
+  isAuthorized = true;
+
   constructor(private http: HttpClient) {
   }
 
@@ -17,6 +22,34 @@ export class AuthService {
     return this.http.post(this.registrationUrl, registrationPayload).pipe(
       tap(res => console.log(res))
     );
+  }
+
+  getAccessToken(): string | null {
+    return localStorage.getItem(this.accessTokenKey);
+  }
+
+  setAccessToken(token: string): void {
+    localStorage.setItem(this.accessTokenKey, token);
+  }
+
+  refreshToken(): Observable<string> {
+    const refreshToken = localStorage.getItem(this.refreshTokenKey);
+    if (!refreshToken) {
+      throw new Error('No refresh token available');
+    }
+
+    return this.http.post<{ accessToken: string }>(
+      '/api/refresh-token',
+      { refreshToken }
+    ).pipe(
+      map(response => response.accessToken)
+    );
+  }
+
+  logout(): void {
+    // localStorage.removeItem(this.accessTokenKey);
+    // localStorage.removeItem(this.refreshTokenKey);
+    window.location.href = 'auth/login';
   }
 
   changeCredentials(login: string | null | undefined, password: string | null | undefined) {

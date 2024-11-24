@@ -1,12 +1,14 @@
 <nav fxLayoutAlign="none center">
   <a routerLink="/main/events">
-    <span>
+    <span class="logo">
         <span class="first-name">Near</span>
         <span class="last-name">U</span>
     </span>
   </a>
   <span fxFlex></span>
-  <p-menu #menu [model]="menuItems" [popup]="true"/>
-  <p-avatar (click)="menu.toggle($event)" label='W' size="large"/>
+  @if (authService.isAuthorized) {
+    <p-menu #menu [model]="menuItems" [popup]="true"/>
+    <p-avatar (click)="menu.toggle($event)" label='W' size="large"/>
+  }
 </nav>
 

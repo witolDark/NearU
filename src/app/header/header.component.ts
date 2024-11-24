@@ -7,6 +7,7 @@ import {Button, ButtonDirective} from 'primeng/button';
 import {ToastModule} from 'primeng/toast';
 import {Router} from '@angular/router';
 import {CalendarModule} from 'primeng/calendar';
+import {AuthService} from '../shared/services/auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -26,7 +27,7 @@ import {CalendarModule} from 'primeng/calendar';
 export class HeaderComponent implements OnInit {
   menuItems: MenuItem[] | undefined;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, protected authService: AuthService) {
   }
 
   ngOnInit() {
@@ -34,6 +35,13 @@ export class HeaderComponent implements OnInit {
       {
         label: 'Профіль',
         items: [
+          {
+            label: 'Мої події',
+            icon: 'fa-solid fa-list',
+            command: () => {
+              this.router.navigate(['/main/my']);
+            }
+          },
           {
             label: 'Налаштування',
             icon: 'fa-solid fa-gear',
@@ -43,7 +51,10 @@ export class HeaderComponent implements OnInit {
           },
           {
             label: 'Вийти',
-            icon: 'fa-solid fa-arrow-right-from-bracket'
+            icon: 'fa-solid fa-arrow-right-from-bracket',
+            command: () => {
+              this.authService.logout();
+            }
           }
         ]
       }

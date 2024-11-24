@@ -9,7 +9,6 @@ import {Button, ButtonDirective} from 'primeng/button';
 import {InputGroupAddonModule} from 'primeng/inputgroupaddon';
 import {InputGroupModule} from 'primeng/inputgroup';
 import {InputTextModule} from 'primeng/inputtext';
-import {CardComponent} from './shared/components/card/card.component';
 import {CardModule} from 'primeng/card';
 import {ReactiveFormsModule} from "@angular/forms";
 import {provideHttpClient} from '@angular/common/http';
@@ -18,8 +17,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    CardComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,

@@ -15,13 +15,23 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CheckboxModule} from 'primeng/checkbox';
 import {CalendarModule} from 'primeng/calendar';
 import {EditorModule} from 'primeng/editor';
+import {DetailsComponent} from './details/details.component';
+import {RatingModule} from 'primeng/rating';
+import {MyEventsComponent} from './my-events/my-events.component';
+import {AppModule} from '../app.module';
+import {EventCardComponent} from './event-card/event-card.component';
+import {AdminPanelComponent} from './admin/admin-panel.component';
 
 
 @NgModule({
   declarations: [
     ProfileComponent,
     EventsComponent,
-    CreationDialogComponent
+    CreationDialogComponent,
+    DetailsComponent,
+    MyEventsComponent,
+    EventCardComponent,
+    AdminPanelComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +47,8 @@ import {EditorModule} from 'primeng/editor';
     CheckboxModule,
     CalendarModule,
     ReactiveFormsModule,
-    EditorModule
+    EditorModule,
+    RatingModule
   ],
   providers: [
     provideHttpClient()
