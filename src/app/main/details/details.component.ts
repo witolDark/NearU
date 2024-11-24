@@ -1,27 +1,21 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {EventPayload} from '../../shared/models/event-payload';
 import {Status} from '../../shared/enums/Status';
+import {EventService} from '../../shared/services/event/event.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
   styleUrl: './details.component.scss'
 })
-export class DetailsComponent {
-  event: EventPayload = {
-    creator: "Witold",
-    title: "Meeting",
-    location: "Ukraine, Lviv",
-    description: "Lorem ipsum hyhyhy",
-    startDate: "10.10.2024",
-    endDate: "20.10.2024",
-    ticketRequired: true,
-    ticketUrl: "https://www.youtube.com/watch?v=e_R0tFL7rn4",
-    status: Status.ACTIVE,
-    rating: 4.3
+export class DetailsComponent implements OnInit {
+  constructor(private eventService: EventService, private route: ActivatedRoute) {
   }
 
   userRating: number | undefined;
+  event: EventPayload | undefined;
+  eventId: string | null |undefined;
 
   onShareClick() {
     const url = window.location.href;
@@ -29,4 +23,12 @@ export class DetailsComponent {
       alert('Скопійовано');
     });
   }
+
+  ngOnInit() {
+    this.eventId = this.route.snapshot.paramMap.get('id');
+    console.log(this.eventId);
+    this.event = this.eventService.events.at(Number(this.eventId));
+  }
+
+  protected readonly Status = Status;
 }

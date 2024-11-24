@@ -10,6 +10,5 @@ import {Status} from '../../shared/enums/Status';
 export class EventCardComponent {
   @Input() event: EventPayload | undefined;
 
-
   protected readonly Status = Status;
 }

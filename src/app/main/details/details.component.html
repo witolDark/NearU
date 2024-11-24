@@ -1,15 +1,16 @@
 <div class="page" fxLayout="column" fxLayoutAlign="start center">
   <div class="container">
     <div class="prop-row" fxLayout="row" fxLayoutAlign="space-between center">
-      <button routerLink="/main/events" class="back-btn" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+      <button routerLink="/main/events" class="back-btn" fxLayout="row" fxLayoutAlign="center center"
+              fxLayoutGap="10px">
         <i class="fa-solid fa-arrow-left"></i>
         <span class="back-btn-text">Назад</span>
       </button>
       <span class="calendar" fxLayoutAlign="center center" fxLayoutGap="10px">
         <i class="fa-regular fa-calendar"></i>
-        <span> {{ event.startDate }}</span>
+        <span> {{ event?.startDate }}</span>
         <span>-</span>
-        <span> {{ event.endDate }}</span>
+        <span> {{ event?.endDate }}</span>
       </span>
       <button (click)="onShareClick()" class="share-btn" fxLayoutAlign="center center" fxLayoutGap="10px">
         <i class="fa-solid fa-share"></i>
@@ -19,45 +20,36 @@
     <p-divider></p-divider>
     <main>
       <div class="prop-row" fxLayoutAlign="start center">
-        <h1>{{ event.title }}</h1>
+        <h1>{{ event?.title }}</h1>
       </div>
       <p-divider></p-divider>
       <div class="prop-row" fxLayoutAlign="start center" fxLayout="row" fxLayoutGap="20px">
         <i class="fa-solid fa-location-dot"></i>
-        <h2>{{ event.location }}</h2>
+        <h2>{{ event?.location }}</h2>
       </div>
       <div class="prop-row">
-        <p>{{ event.description }}</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos doloremque hic ipsam molestias neque
-          perspiciatis quia reiciendis voluptatum. Ad aperiam cumque deleniti eaque illo ipsum nisi reprehenderit
-          temporibus ut, veritatis.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa dignissimos earum est hic molestias
-          neque pariatur quae quia quidem quis, quos sunt ullam vitae voluptatem. Fuga illum laudantium mollitia.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos doloremque hic ipsam molestias neque
-          perspiciatis quia reiciendis voluptatum. Ad aperiam cumque deleniti eaque illo ipsum nisi reprehenderit
-          temporibus ut, veritatis.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos doloremque hic ipsam molestias neque
-          perspiciatis quia reiciendis voluptatum. Ad aperiam cumque deleniti eaque illo ipsum nisi reprehenderit
-          temporibus ut, veritatis.</p>
+        <span>{{ event?.description }}</span>
       </div>
-      @if (event.ticketRequired) {
+      @if (event?.ticketRequired) {
         <p-divider></p-divider>
         <div class="prop-row" fxLayout="row" fxLayoutAlign="space-between center">
           <h2>Як прийняти участь?</h2>
-          <h3>{{ event.ticketUrl }}</h3>
+          <h3>{{ event?.ticketUrl }}</h3>
         </div>
       }
       <p-divider></p-divider>
     </main>
     <div class="prop-row" fxLayout="row" fxLayoutAlign="space-between end">
+      @if (event?.status === Status.ACTIVE) {
         <span fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
-          <span>{{ event.rating }}</span>
+          <span>{{ event?.rating }}</span>
           <p-rating [(ngModel)]="userRating" [cancel]="false"/>
         </span>
+      }
       <span fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
-          <i class="fa-solid fa-user"></i>
-          <span> {{ event.creator }}</span>
-        </span>
+        <i class="fa-solid fa-user"></i>
+        <span> {{ event?.creator }}</span>
+      </span>
     </div>
   </div>
 </div>
