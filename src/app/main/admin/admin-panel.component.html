@@ -1,3 +1,11 @@
 <div class="page">
-
+  <div class="card-container" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="20px">
+    <div class="event-row" *ngFor="let event of events" fxLayout="row" fxLayoutAlign="center start">
+      <app-event-card class="card" [event]="event"></app-event-card>
+      <div class="control-panel" fxLayout="column">
+        <button pButton class="publish-btn" label="Опублікувати"></button>
+        <button pButton class="decline-btn" label="Відхилити"></button>
+      </div>
+    </div>
+  </div>
 </div>

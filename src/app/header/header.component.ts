@@ -8,6 +8,7 @@ import {ToastModule} from 'primeng/toast';
 import {Router} from '@angular/router';
 import {CalendarModule} from 'primeng/calendar';
 import {AuthService} from '../shared/services/auth/auth.service';
+import {Role} from '../shared/enums/Role';
 
 @Component({
   selector: 'app-header',
@@ -59,5 +60,20 @@ export class HeaderComponent implements OnInit {
         ]
       }
     ];
+
+    if (this.authService.user.role === Role.ADMIN) {
+      this.menuItems.push({
+        label: 'Адміністратор',
+        items: [
+          {
+            label: 'Управління подіями',
+            icon: 'fa-solid fa-lock',
+            command: () => {
+              this.router.navigate(['/main/admin']);
+            }
+          }
+        ]
+      });
+    }
   }
 }

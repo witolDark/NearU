@@ -3,11 +3,20 @@ import {RegistrationPayload} from '../../models/registration-payload';
 import {HttpClient} from '@angular/common/http';
 import {map, Observable, of, tap} from 'rxjs';
 import {FormControl, ɵValue} from '@angular/forms';
+import {UserStateModel} from '../../models/user-state-model';
+import {Role} from '../../enums/Role';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  user: UserStateModel = {
+    email: "witalikspelina@gmail.com",
+    login: "Witold",
+    role: Role.ADMIN,
+    isAuthorized: true
+  }
+
   registrationUrl = 'http://localhost:5000/api/registration'
 
   accessTokenKey: string = '';

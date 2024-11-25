@@ -21,8 +21,8 @@
   <div class="card-footer" fxLayoutAlign="space-between center">
     @if (event?.status === Status.INACTIVE) {
       <span class="rating">
-      <i class="fa-solid fa-star"></i>
-        {{ event?.rating }}
+        <i class="fa-solid fa-star"></i>
+          {{ event?.rating }}
       </span>
     }
     <button pButton label="Деталі" [routerLink]="['/main/details', event?.id]" class="detail-button"></button>

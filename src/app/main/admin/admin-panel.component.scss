@@ -4,3 +4,33 @@
   position: relative;
   box-sizing: border-box;
 }
+
+.event-row {
+  width: 100%;
+  height: 400px;
+}
+
+.card {
+  width: 700px;
+  height: 300px;
+}
+
+.publish-btn, .decline-btn {
+  width: 200px;
+  height: 50%;
+  color: white;
+  border: none;
+  border-radius: 0;
+}
+
+.control-panel {
+  height: 100%;
+}
+
+.publish-btn {
+  background: greenyellow;
+}
+
+.decline-btn {
+  background: orangered;
+}
