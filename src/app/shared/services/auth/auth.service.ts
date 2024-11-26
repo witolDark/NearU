@@ -1,23 +1,21 @@
 import {Injectable} from '@angular/core';
 import {RegistrationPayload} from '../../models/registration-payload';
-import {HttpClient} from '@angular/common/http';
-import {map, Observable, of, tap} from 'rxjs';
-import {FormControl, ɵValue} from '@angular/forms';
+import {map, Observable, tap} from 'rxjs';
 import {UserStateModel} from '../../models/user-state-model';
-import {Role} from '../../enums/Role';
+import {UserState} from './auth.state';
+import {Select, Store} from '@ngxs/store';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  user: UserStateModel = {
-    email: "witalikspelina@gmail.com",
-    login: "Witold",
-    role: Role.ADMIN,
-    isAuthorized: true
-  }
+  // @Select(UserState.user)
+  // public user$?: Observable<UserStateModel>;
 
-  registrationUrl = 'http://localhost:5000/api/registration'
+  user: UserStateModel | undefined;
+
+  registrationUrl = 'http://localhost:5000/api/';
 
   accessTokenKey: string = '';
   refreshTokenKey: string = '';
@@ -28,9 +26,15 @@ export class AuthService {
   }
 
   register(registrationPayload: RegistrationPayload) {
-    return this.http.post(this.registrationUrl, registrationPayload).pipe(
+    return this.http.post(`${this.registrationUrl}/registration`, registrationPayload).pipe(
       tap(res => console.log(res))
     );
+  }
+
+  activateAccount(activationLink: string) {
+    return this.http.post(`${this.registrationUrl}/registration/${activationLink}`, {}).pipe(
+      tap(res => )
+    )
   }
 
   getAccessToken(): string | null {
@@ -49,7 +53,7 @@ export class AuthService {
 
     return this.http.post<{ accessToken: string }>(
       '/api/refresh-token',
-      { refreshToken }
+      {refreshToken}
     ).pipe(
       map(response => response.accessToken)
     );
