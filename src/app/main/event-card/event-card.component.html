@@ -1,7 +1,7 @@
 <div class="card" fxLayout="column">
   <div class="card-header" fxLayoutAlign="space-between center">
         <span fxLayoutAlign="center center" fxLayoutGap="8px">
-          <i class="event-indicator fa-solid fa-circle"></i>
+          <i class="event-indicator fa-solid fa-circle" [ngStyle]="{'color': getStatusColor(event?.status)}"></i>
           <span> {{ event?.status }} </span>
         </span>
     @if (event?.ticketRequired) {
@@ -18,7 +18,7 @@
     <p-divider/>
     <span class="event-description">{{ event?.description }}</span>
   </div>
-  <div class="card-footer" fxLayoutAlign="space-between center">
+  <div class="card-footer" [fxLayoutAlign]="event?.status === Status.INACTIVE ? 'space-between center' : 'end center'">
     @if (event?.status === Status.INACTIVE) {
       <span class="rating">
         <i class="fa-solid fa-star"></i>

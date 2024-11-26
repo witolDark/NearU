@@ -26,12 +26,15 @@
 
 .new-event-btn {
   border-radius: 0;
+  position: fixed;
+  bottom: 80px;
+  right: 40px;
   background: limegreen;
   border: none;
-  width: 200px;
-  height: 50px;
+  width: 250px;
+  height: 60px;
   color: white;
-  font-size: 20px;
+  font-size: 22px;
 }
 
 

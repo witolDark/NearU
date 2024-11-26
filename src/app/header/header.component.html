@@ -8,7 +8,9 @@
   <span fxFlex></span>
   @if (authService.isAuthorized) {
     <p-menu #menu [model]="menuItems" [popup]="true"/>
-    <p-avatar (click)="menu.toggle($event)" label='W' size="large"/>
+    <button pButton class="profile" fxLayoutAlign="center center" (click)="menu.toggle($event)">
+      {{ this.authService.user.login?.[0] }}
+    </button>
   }
 </nav>
 
