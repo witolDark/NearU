@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {CreationDialogComponent} from '../creation-dialog/creation-dialog.component';
 import {EventPayload} from '../../shared/models/event-payload';
 import {EventService} from '../../shared/services/event/event.service';
+import {AuthService} from '../../shared/services/auth/auth.service';
 
 @Component({
   selector: 'app-events',
@@ -9,7 +10,7 @@ import {EventService} from '../../shared/services/event/event.service';
   styleUrl: './events.component.scss'
 })
 export class EventsComponent implements OnInit {
-  constructor(private eventService: EventService) {
+  constructor(private eventService: EventService, protected authService: AuthService) {
   }
 
   @ViewChild(CreationDialogComponent) creationDialog!: CreationDialogComponent;

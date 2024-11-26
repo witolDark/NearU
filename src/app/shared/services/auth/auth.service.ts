@@ -1,67 +1,71 @@
 import {Injectable} from '@angular/core';
 import {RegistrationPayload} from '../../models/registration-payload';
-import {map, Observable, tap} from 'rxjs';
+import {tap} from 'rxjs';
 import {UserStateModel} from '../../models/user-state-model';
-import {UserState} from './auth.state';
-import {Select, Store} from '@ngxs/store';
 import {HttpClient} from '@angular/common/http';
+import {LoginPayload} from '../../models/login-payload';
+import {Router} from '@angular/router';
+import {jwtDecode} from 'jwt-decode';
+import {Debugger} from 'node:inspector';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  // @Select(UserState.user)
-  // public user$?: Observable<UserStateModel>;
+  user?: UserStateModel;
 
-  user: UserStateModel | undefined;
+  apiUrl = 'http://localhost:5000/api/';
 
-  registrationUrl = 'http://localhost:5000/api/';
-
-  accessTokenKey: string = '';
-  refreshTokenKey: string = '';
-
-  isAuthorized = true;
-
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
+    this.initAuthorization();
   }
 
   register(registrationPayload: RegistrationPayload) {
-    return this.http.post(`${this.registrationUrl}/registration`, registrationPayload).pipe(
-      tap(res => console.log(res))
+    return this.http.post(`${this.apiUrl}/registration`, registrationPayload).pipe(
+      tap(() => {
+        this.router.navigate(['/auth/login']);
+      })
     );
   }
 
-  activateAccount(activationLink: string) {
-    return this.http.post(`${this.registrationUrl}/registration/${activationLink}`, {}).pipe(
-      tap(res => )
+  login(email: string, password: string) {
+    return this.http.post<LoginPayload>(`${this.apiUrl}/login`, {email, password}).pipe(
+      tap(res => {
+        this.setAuthorization(res);
+      })
     )
   }
 
-  getAccessToken(): string | null {
-    return localStorage.getItem(this.accessTokenKey);
+  setAuthorization(res: LoginPayload) {
+    localStorage.setItem('accessToken', res.accessToken);
+    localStorage.setItem('refreshToken', res.refreshToken);
+
+    this.user = {email: res.user.email, name: res.user.name, role: res.user.role, isAuthorized: true};
+    console.log(this.user);
   }
 
-  setAccessToken(token: string): void {
-    localStorage.setItem(this.accessTokenKey, token);
-  }
-
-  refreshToken(): Observable<string> {
-    const refreshToken = localStorage.getItem(this.refreshTokenKey);
-    if (!refreshToken) {
-      throw new Error('No refresh token available');
+  initAuthorization() {
+    if (this.getAccessToken()) {
+      this.user = {...jwtDecode<UserStateModel>(this.getAccessToken() as string), isAuthorized: true};
+      console.log(this.user);
     }
+  }
 
-    return this.http.post<{ accessToken: string }>(
-      '/api/refresh-token',
-      {refreshToken}
-    ).pipe(
-      map(response => response.accessToken)
-    );
+  activateAccount(token: string) {
+    return this.http.get(`${this.apiUrl}/${token}`);
+  }
+
+  getAccessToken() {
+    return localStorage.getItem('accessToken');
+  }
+
+  getRefreshToken() {
+    return localStorage.getItem('refreshToken');
   }
 
   logout(): void {
-    // localStorage.removeItem(this.accessTokenKey);
-    // localStorage.removeItem(this.refreshTokenKey);
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('refreshToken');
     window.location.href = 'auth/login';
   }
 

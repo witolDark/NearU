@@ -28,7 +28,7 @@ import {Role} from '../shared/enums/Role';
 export class HeaderComponent implements OnInit {
   menuItems: MenuItem[] | undefined;
 
-  constructor(private router: Router, protected authService: AuthService) {
+  constructor(protected router: Router, protected authService: AuthService) {
   }
 
   ngOnInit() {
@@ -61,7 +61,7 @@ export class HeaderComponent implements OnInit {
       }
     ];
 
-    if (this.authService.user.role === Role.ADMIN) {
+    if (this.authService.user?.role === Role.ADMIN) {
       this.menuItems.push({
         label: 'Адміністратор',
         items: [

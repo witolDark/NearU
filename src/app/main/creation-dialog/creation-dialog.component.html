@@ -42,8 +42,8 @@
     </div>
     <p-divider></p-divider>
     <div fxLayout="row" fxLayoutAlign="space-between center">
-      <button pButton class="dialog-btn" label="Скасувати" severity="secondary"></button>
-      <button pButton class="dialog-btn" label="Додати"></button>
+      <button pButton class="dialog-btn" label="Скасувати" (click)="showDialog()" severity="secondary"></button>
+      <button pButton class="dialog-btn" label="Додати" [disabled]="this.form.invalid" (click)="onSubmit()"></button>
     </div>
   </div>
 </p-dialog>

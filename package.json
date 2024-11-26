@@ -24,6 +24,7 @@
     "@ngbracket/ngx-layout": "^18.0.0",
     "@ngxs/store": "^18.1.6",
     "express": "^4.18.2",
+    "jwt-decode": "^4.0.0",
     "primeng": "^17.18.11",
     "quill": "^2.0.2",
     "rxjs": "~7.8.0",

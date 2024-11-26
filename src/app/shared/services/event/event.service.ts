@@ -1,17 +1,21 @@
 import { Injectable } from '@angular/core';
 import {EventPayload} from '../../models/event-payload';
 import {Status} from '../../enums/Status';
+import {HttpClient} from '@angular/common/http';
+import {AuthService} from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventService {
 
-  sendEvent() {
+  apiUrl = 'http://localhost:5000/api/evets';
 
+  addEvent(data: { title: string, rangeDates: string, ticketChecked: string, ticketLink: string, location: string, description: string }) {
+    return this.http.post(this.apiUrl, { creator: this.authService.user?.name, ...data})
   }
 
-  constructor() { }
+  constructor(private http: HttpClient, private authService: AuthService) { }
 
   events: EventPayload[] = [
     {

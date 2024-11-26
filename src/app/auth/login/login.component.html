@@ -2,10 +2,10 @@
   <div class="bg1"></div>
   <div class="bg2"></div>
   <span class="login-label">ВХІД</span>
-  <form>
-    <input pInputText placeholder="Електронна пошта"/>
-    <input pInputText type="password" placeholder="Пароль"/>
-    <button pButton class="button-login" label="Увійти"></button>
+  <form [formGroup]="form">
+    <input formControlName="email" pInputText placeholder="Електронна пошта"/>
+    <input formControlName="password" pInputText type="password" placeholder="Пароль"/>
+    <button pButton class="button-login" label="Увійти" (click)="onSubmit()"></button>
     <button pButton class="button-register" [text]="true" label="Реєстрація" routerLink="/auth/register"></button>
     <button pButton type="button" class="button-continue" label="Продовжити без входу" routerLink="/main/events"></button>
   </form>

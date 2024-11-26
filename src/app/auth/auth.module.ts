@@ -12,13 +12,15 @@ import {AuthRoutingModule} from './auth-routing.module';
 import {provideHttpClient} from '@angular/common/http';
 import { EmailConfirmedComponent } from './email-confirmed/email-confirmed.component';
 import {FlexLayoutModule} from '@ngbracket/ngx-layout';
+import { ActivationComponent } from './activation/activation.component';
 
 
 @NgModule({
   declarations: [
     RegisterComponent,
     LoginComponent,
-    EmailConfirmedComponent
+    EmailConfirmedComponent,
+    ActivationComponent
   ],
   imports: [
     CommonModule,

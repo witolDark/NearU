@@ -6,11 +6,15 @@
     </span>
   </a>
   <span fxFlex></span>
-  @if (authService.isAuthorized) {
+  @if (authService.user?.isAuthorized) {
     <p-menu #menu [model]="menuItems" [popup]="true"/>
     <button pButton class="profile" fxLayoutAlign="center center" (click)="menu.toggle($event)">
-      {{ this.authService.user.login?.[0] }}
+      {{ this.authService.user?.name?.[0] }}
     </button>
+  } @else if (!this.router.url.includes('login') && !this.router.url.includes('register')) {
+    <button class="login-btn" routerLink="/auth/login">Увійти</button>
+  } @else {
+
   }
 </nav>
 
