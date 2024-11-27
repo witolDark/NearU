@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../shared/services/auth/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +10,7 @@ import {AuthService} from '../../shared/services/auth/auth.service';
 })
 export class RegisterComponent {
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router: Router) {
   }
 
   form = new FormGroup({
@@ -20,8 +21,22 @@ export class RegisterComponent {
   })
 
   onSubmit() {
-    this.authService.register(this.form.value).subscribe(res => {
-        console.log(res);
-    })
+    if (this.form.value.password === this.form.value.password_confirmation) {
+      this.authService.register(this.form.value).subscribe({
+        next: () => {
+          this.router.navigate(['/auth/confirmation']);
+        },
+        error: (error) => {
+          if (error.status === 400) {
+            console.error('Bad Request: Invalid data');
+          } else if (error.status === 500) {
+            console.error('Server Error: Please try again later');
+          } else {
+            console.error('Unexpected error:', error);
+          }
+        },
+      });
+    }
+    else console.log('Паролі не збігаються');
   }
 }

@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {EventPayload} from '../../shared/models/event-payload';
-import {Status} from '../../shared/enums/Status';
 import {EventService} from '../../shared/services/event/event.service';
 import {ActivatedRoute} from '@angular/router';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-details',
@@ -10,7 +10,7 @@ import {ActivatedRoute} from '@angular/router';
   styleUrl: './details.component.scss'
 })
 export class DetailsComponent implements OnInit {
-  constructor(private eventService: EventService, private route: ActivatedRoute) {
+  constructor(private eventService: EventService, private route: ActivatedRoute, private location: Location) {
   }
 
   userRating: number | undefined;
@@ -32,5 +32,7 @@ export class DetailsComponent implements OnInit {
     })
   }
 
-  protected readonly Status = Status;
+  goBack() {
+    this.location.back();
+  }
 }

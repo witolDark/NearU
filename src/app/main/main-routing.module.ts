@@ -9,7 +9,6 @@ import {AuthGuard} from '../shared/services/auth/auth.guard';
 import {AdminGuard} from '../shared/services/auth/admin.guard';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'events', pathMatch: 'full'},
   {path: 'events', component: EventsComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'details/:id', component: DetailsComponent},

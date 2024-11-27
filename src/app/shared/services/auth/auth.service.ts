@@ -6,7 +6,6 @@ import {HttpClient} from '@angular/common/http';
 import {LoginPayload} from '../../models/login-payload';
 import {Router} from '@angular/router';
 import {jwtDecode} from 'jwt-decode';
-import {Debugger} from 'node:inspector';
 
 @Injectable({
   providedIn: 'root'
@@ -67,8 +66,5 @@ export class AuthService {
     localStorage.removeItem('accessToken');
     localStorage.removeItem('refreshToken');
     window.location.href = 'auth/login';
-  }
-
-  changeCredentials(login: string | null | undefined, password: string | null | undefined) {
   }
 }

@@ -1,7 +1,7 @@
 <div class="page" fxLayout="column" fxLayoutAlign="start center">
   <div class="container">
     <div class="prop-row" fxLayout="row" fxLayoutAlign="space-between center">
-      <button routerLink="/main/events" class="back-btn" fxLayout="row" fxLayoutAlign="center center"
+      <button (click)="goBack()" class="back-btn" fxLayout="row" fxLayoutAlign="center center"
               fxLayoutGap="10px">
         <i class="fa-solid fa-arrow-left"></i>
         <span class="back-btn-text">Назад</span>
@@ -39,13 +39,7 @@
       }
       <p-divider></p-divider>
     </main>
-    <div class="prop-row" fxLayout="row" fxLayoutAlign="space-between end">
-      @if (event?.status === Status.ACTIVE) {
-        <span fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
-          <span>{{ event?.rating }}</span>
-          <p-rating [(ngModel)]="userRating" [cancel]="false"/>
-        </span>
-      }
+    <div class="prop-row" fxLayout="row" fxLayoutAlign="end center">
       <span fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
         <i class="fa-solid fa-user"></i>
         <span> {{ event?.creator }}</span>

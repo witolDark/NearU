@@ -18,9 +18,9 @@ import {EditorModule} from 'primeng/editor';
 import {DetailsComponent} from './details/details.component';
 import {RatingModule} from 'primeng/rating';
 import {MyEventsComponent} from './my-events/my-events.component';
-import {AppModule} from '../app.module';
 import {EventCardComponent} from './event-card/event-card.component';
 import {AdminPanelComponent} from './admin/admin-panel.component';
+import {NoEventsComponent} from './no-events/no-events.component';
 
 
 @NgModule({
@@ -31,7 +31,8 @@ import {AdminPanelComponent} from './admin/admin-panel.component';
     DetailsComponent,
     MyEventsComponent,
     EventCardComponent,
-    AdminPanelComponent
+    AdminPanelComponent,
+    NoEventsComponent
   ],
   imports: [
     CommonModule,

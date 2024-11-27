@@ -10,17 +10,15 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {InputTextModule} from 'primeng/inputtext';
 import {AuthRoutingModule} from './auth-routing.module';
 import {provideHttpClient} from '@angular/common/http';
-import { EmailConfirmedComponent } from './email-confirmed/email-confirmed.component';
+import {EmailConfirmedComponent} from './email-confirmed/email-confirmed.component';
 import {FlexLayoutModule} from '@ngbracket/ngx-layout';
-import { ActivationComponent } from './activation/activation.component';
 
 
 @NgModule({
   declarations: [
     RegisterComponent,
     LoginComponent,
-    EmailConfirmedComponent,
-    ActivationComponent
+    EmailConfirmedComponent
   ],
   imports: [
     CommonModule,

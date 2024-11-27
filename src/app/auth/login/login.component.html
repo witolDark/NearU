@@ -6,7 +6,7 @@
     <input formControlName="email" pInputText placeholder="Електронна пошта"/>
     <input formControlName="password" pInputText type="password" placeholder="Пароль"/>
     <button pButton class="button-login" label="Увійти" (click)="onSubmit()"></button>
-    <button pButton class="button-register" [text]="true" label="Реєстрація" routerLink="/auth/register"></button>
+    <button pButton type="button" class="button-register" [text]="true" label="Реєстрація" routerLink="/auth/register"></button>
     <button pButton type="button" class="button-continue" label="Продовжити без входу" routerLink="/main/events"></button>
   </form>
 </div>
