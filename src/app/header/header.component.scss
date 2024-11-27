@@ -8,21 +8,19 @@ nav {
   letter-spacing: 1px;
   font-weight: 800;
   padding: 0 200px;
-  background: rgb(61, 255, 255);
-  background: linear-gradient(90deg, rgba(61, 255, 255, 0.1) 0%, rgba(0, 26, 255, 0.2) 100%);
+  background: #f1f1f1;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-bottom: 2px solid rgba(149, 157, 165, 0.2);
 }
 
 .first-name {
   color: limegreen;
-  text-shadow: 2px 2px 0px rgba(0,0,0,0.2);
 }
 
 .last-name {
   color: #80B3FF;
   font-weight: 800;
   margin-left: 3px;
-  text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
 }
 
 .logo:hover {
@@ -37,10 +35,16 @@ a {
 .profile {
   height: 50px;
   width: 50px;
-  border: none;
   border-radius: 50%;
-  background: white;
   color: black;
+  font-size: 20px;
+  background: transparent;
+  border: 2px solid lightgray;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.profile:hover {
+  transform: scale(1.05);
 }
 
 .login-btn {

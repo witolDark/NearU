@@ -9,6 +9,7 @@ import {Router} from '@angular/router';
 import {CalendarModule} from 'primeng/calendar';
 import {AuthService} from '../shared/services/auth/auth.service';
 import {Role} from '../shared/enums/Role';
+import {DividerModule} from 'primeng/divider';
 
 @Component({
   selector: 'app-header',
@@ -20,7 +21,8 @@ import {Role} from '../shared/enums/Role';
     Button,
     ButtonDirective,
     ToastModule,
-    CalendarModule
+    CalendarModule,
+    DividerModule
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'

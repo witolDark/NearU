@@ -10,18 +10,20 @@ import {AuthService} from '../../shared/services/auth/auth.service';
   styleUrl: './events.component.scss'
 })
 export class EventsComponent implements OnInit {
-  constructor(private eventService: EventService, protected authService: AuthService) {
+  constructor(protected eventService: EventService, protected authService: AuthService) {
   }
 
   @ViewChild(CreationDialogComponent) creationDialog!: CreationDialogComponent;
 
-  events: EventPayload[] | undefined;
+  events: EventPayload[] = [];
 
   showDialog() {
     this.creationDialog.showDialog();
   }
 
   ngOnInit() {
-    this.events = this.eventService.events;
+    this.eventService.getEvents().subscribe((events: EventPayload[]) => {
+      this.events = events;
+    })
   }
 }

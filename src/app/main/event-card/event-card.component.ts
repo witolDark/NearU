@@ -10,22 +10,28 @@ import {Status} from '../../shared/enums/Status';
 export class EventCardComponent {
   @Input() event: EventPayload | undefined;
 
-  getStatusColor(status: Status | null | undefined) {
-    if(status) {
-      switch (status) {
-        case Status.ACTIVE:
-          return 'green';
-        case Status.INACTIVE:
-          return 'red';
-        case Status.PENDING:
-          return 'gray';
-        case Status.UPCOMING:
-          return 'blue';
-        default:
-          return 'black';
-      }
+  eventStatus: Status;
+
+  getStatusColor() {
+    switch (this.event.status as string) {
+      case 'active':
+        this.eventStatus = Status.ACTIVE
+        return 'limegreen';
+      case 'inactive':
+        this.eventStatus = Status.INACTIVE
+        return 'orangered';
+      case 'pending':
+        this.eventStatus = Status.PENDING
+        return 'gray';
+      case 'upcoming':
+        this.eventStatus = Status.UPCOMING
+        return 'lightblue';
+      case 'canceled':
+        this.eventStatus = Status.CANCELLED
+        return 'black';
+      default:
+        return 'black';
     }
-    return 'black';
   }
 
   protected readonly Status = Status;

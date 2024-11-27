@@ -1,6 +1,7 @@
 export enum Status {
   INACTIVE = 'Завершений',
-  ACTIVE = 'Дійсний',
-  UPCOMING = 'Запланований',
-  PENDING = 'На обробці'
+  ACTIVE = 'Активний',
+  UPCOMING = 'Заплановано',
+  PENDING = 'На обробці',
+  CANCELLED = 'Відмінено'
 }

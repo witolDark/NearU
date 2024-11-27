@@ -15,6 +15,20 @@ export class AdminPanelComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.events = this.eventService.events;
+    this.eventService.getEventsPending().subscribe(response => {
+      this.events = response;
+    })
+  }
+
+  onPublish(id: string) {
+    this.eventService.approveEvent(id).subscribe(response => {
+      this.events = response;
+    })
+  }
+
+  onDecline(id: string) {
+    this.eventService.declineEvent(id).subscribe(response => {
+      this.events = response;
+    })
   }
 }

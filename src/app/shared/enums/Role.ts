@@ -1,4 +1,4 @@
 export enum Role {
-  DEFAULT = 'Користувач',
-  ADMIN = 'Адміністратор'
+  DEFAULT = 'default',
+  ADMIN = 'admin'
 }

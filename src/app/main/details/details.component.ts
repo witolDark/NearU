@@ -15,7 +15,7 @@ export class DetailsComponent implements OnInit {
 
   userRating: number | undefined;
   event: EventPayload | undefined;
-  eventId: string | null |undefined;
+  eventId: string | null | undefined;
 
   onShareClick() {
     const url = window.location.href;
@@ -27,7 +27,9 @@ export class DetailsComponent implements OnInit {
   ngOnInit() {
     this.eventId = this.route.snapshot.paramMap.get('id');
     console.log(this.eventId);
-    this.event = this.eventService.events.at(Number(this.eventId));
+    this.eventService.getEventById(this.eventId).subscribe(res => {
+      this.event = res;
+    })
   }
 
   protected readonly Status = Status;

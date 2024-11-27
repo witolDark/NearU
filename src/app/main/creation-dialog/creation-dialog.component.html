@@ -2,7 +2,7 @@
   <div [formGroup]="form" class="wrapper" fxLayout="column" fxLayoutGap="7px">
     <div class="elem-row" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
       <p-floatLabel class="event-name">
-        <input formControlName="name" class="event-name-inp" id="name" type="text" pInputText>
+        <input formControlName="title" class="event-name-inp" id="name" type="text" pInputText>
         <label class="event-name-inp" for="name">Назва</label>
       </p-floatLabel>
       <p-floatLabel class="date">
@@ -11,7 +11,9 @@
           selectionMode="range"
           [readonlyInput]="true"
           inputId="datepicker"
-          [style]="{width: '100%'}">
+          [style]="{width: '100%'}"
+          [showTime]="true"
+          [hourFormat]="24">
         </p-calendar>
         <label for="datepicker">Дата</label>
       </p-floatLabel>
