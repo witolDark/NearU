@@ -37,6 +37,6 @@ export class RegisterComponent {
         },
       });
     }
-    else console.log('Паролі не збігаються');
+    else alert('Паролі не збігаються');
   }
 }
