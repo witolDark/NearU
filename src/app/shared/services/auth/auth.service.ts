@@ -40,26 +40,17 @@ export class AuthService {
     localStorage.setItem('refreshToken', res.refreshToken);
 
     this.user = {email: res.user.email, name: res.user.name, role: res.user.role, isAuthorized: true};
-    console.log(this.user);
   }
 
   initAuthorization() {
     if (this.getAccessToken()) {
       this.user = {...jwtDecode<UserStateModel>(this.getAccessToken() as string), isAuthorized: true};
-      console.log(this.user);
+      this.router.navigate(['/main/events']);
     }
-  }
-
-  activateAccount(token: string) {
-    return this.http.get(`${this.apiUrl}/${token}`);
   }
 
   getAccessToken() {
     return localStorage.getItem('accessToken');
-  }
-
-  getRefreshToken() {
-    return localStorage.getItem('refreshToken');
   }
 
   logout(): void {

@@ -6,18 +6,18 @@ import { AuthService } from './auth.service'; // Сервіс для перев�
 @Injectable({
   providedIn: 'root',
 })
-export class AuthGuard implements CanActivate {
+export class NoAuthGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    if (this.authService.user.isAuthorized) {
+    if (!this.authService.user.isAuthorized) {
       return true;
     }
 
-    this.router.navigate(['/auth/login']);
+    this.router.navigate(['/main/events']);
     return false;
   }
 }
