@@ -8,18 +8,9 @@ import {AuthService} from '../../shared/services/auth/auth.service';
   styleUrl: './profile.component.scss'
 })
 export class ProfileComponent {
-  constructor(private authService: AuthService) {
-  }
-
   form = new FormGroup({
     login: new FormControl(''),
     password: new FormControl('', Validators.minLength(8)),
     passwordConfirm: new FormControl('', Validators.minLength(8))
   })
-
-  changeCredentials()  {
-    if (this.form.valid && this.form.value.password === this.form.value.passwordConfirm) {
-      this.authService.changeCredentials(this.form.value.login, this.form.value.password);
-    }
-  }
 }

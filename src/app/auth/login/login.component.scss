@@ -10,7 +10,7 @@
   width: 100%;
   background: rgb(61,255,255);
   background: linear-gradient(90deg, rgba(61,255,255,0.2) 0%, rgba(0,26,255,0.2) 100%);
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
 }
 
 .bg2 {
@@ -40,7 +40,7 @@ form {
   margin-bottom: 10%;
   align-items: center;
   background: #fff;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
 }
 
 input {
@@ -62,11 +62,13 @@ input {
 }
 
 .button-continue {
-  background: limegreen;
-  color: white;
-  border: none;
+  color: limegreen;
   border-radius: 0;
   height: 50px;
   width: 100%;
 }
 
+a {
+  color: black;
+  text-decoration: none;
+}

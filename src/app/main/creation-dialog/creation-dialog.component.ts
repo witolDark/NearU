@@ -33,7 +33,9 @@ export class CreationDialogComponent {
     const ticketRequired = this.form.value.ticketChecked;
     const ticketUrl = this.form.value.ticketLink;
 
-    this.eventService.addEvent({creator, title, description, startDate, endDate, location, ticketRequired, ticketUrl}).subscribe();
+    this.eventService.addEvent({creator, title, description, startDate, endDate, location, ticketRequired, ticketUrl}).subscribe(res => {
+      alert('Подія надіслана на обробку.');
+    });
     this.showDialog()
   }
 

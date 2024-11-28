@@ -17,14 +17,16 @@
 
 .publish-btn, .decline-btn {
   width: 200px;
-  height: 50%;
+  height: 60px;
   color: white;
   border: none;
   border-radius: 0;
+  cursor: pointer;
 }
 
 .control-panel {
   height: 100%;
+  margin-left: 20px;
 }
 
 .publish-btn {

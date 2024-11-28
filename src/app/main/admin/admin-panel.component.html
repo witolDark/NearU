@@ -2,9 +2,9 @@
   <div *ngIf="events.length > 0" class="card-container" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="20px">
     <div class="event-row" *ngFor="let event of events" fxLayout="row" fxLayoutAlign="center start">
       <app-event-card class="card" [event]="event"></app-event-card>
-      <div class="control-panel" fxLayout="column">
-        <button class="publish-btn" (click)="onPublish(event._id)">Опублікувати</button>
-        <button class="decline-btn" (click)="onDecline(event._id)">Відхилити</button>
+      <div class="control-panel" fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="center center">
+        <button pButton class="publish-btn" (click)="onPublish(event._id)" label="Опублікувати"></button>
+        <button pButton class="decline-btn" (click)="onDecline(event._id)" label="Відхилити"></button>
       </div>
     </div>
   </div>

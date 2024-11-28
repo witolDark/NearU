@@ -2,7 +2,7 @@
   <div class="bg1"></div>
   <div class="bg2"></div>
   <span class="profile-label">ПЕРСОНАЛЬНІ ДАНІ</span>
-  <form fxLayout="column" fxLayoutGap="30px" [formGroup]="form" (ngSubmit)="changeCredentials()">
+  <form fxLayout="column" fxLayoutGap="30px" [formGroup]="form">
     <input formControlName="login" class="profile-input" placeholder="Ім'я" type="text">
     <input formControlName="password" class="profile-input" placeholder="Пароль" type="password">
     <input formControlName="passwordConfirm" class="profile-input" placeholder="Підтвердження паролю" type="password">
