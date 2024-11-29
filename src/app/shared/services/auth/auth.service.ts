@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {RegistrationPayload} from '../../models/registration-payload';
-import {tap} from 'rxjs';
+import {catchError, tap, throwError} from 'rxjs';
 import {UserStateModel} from '../../models/user-state-model';
 import {HttpClient} from '@angular/common/http';
 import {LoginPayload} from '../../models/login-payload';

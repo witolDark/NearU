@@ -35,7 +35,6 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/main/events']);
       },
       error: () => {
-        console.error('Login failed');
         alert('Логін або пароль неправильні.');
       },
     });

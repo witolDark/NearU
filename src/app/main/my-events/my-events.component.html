@@ -1,7 +1,8 @@
 <div class="page">
   <div class="card-container" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="20px">
+    <div class="my-label">МОЇ ПОДІЇ</div>
     <div class="event-row" *ngFor="let event of events" fxLayout="row" fxLayoutAlign="center start">
       <app-event-card class="card" [event]="event"></app-event-card>
+    </div>
   </div>
 </div>
-

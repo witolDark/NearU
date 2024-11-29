@@ -17,7 +17,7 @@
       <button pButton class="profile" fxLayoutAlign="center center" (click)="menu.toggle($event)">
         {{ this.authService.user?.name?.[0] }}
       </button>
-    } @else if (!this.router.url.includes('login') && !this.router.url.includes('register')) {
+    } @else if (!this.router.url.includes('auth')) {
       <button class="login-btn" routerLink="/auth/login">Увійти</button>
     }
   </div>
