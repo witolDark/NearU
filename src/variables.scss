@@ -1,0 +1,4 @@
+@use '@angular/material' as mat;
+@use 'theme' as theme;
+
+$primary-color: mat.get-theme-color(theme.$theme, primary, 50);

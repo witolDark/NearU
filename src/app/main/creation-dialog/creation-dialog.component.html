@@ -1,51 +1,51 @@
-<p-dialog header="Нова подія" [modal]="true" [(visible)]="visible">
-  <div [formGroup]="form" class="wrapper" fxLayout="column" fxLayoutGap="7px">
-    <div class="elem-row" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
-      <p-floatLabel class="event-name">
-        <input formControlName="title" class="event-name-inp" id="name" type="text" pInputText>
-        <label class="event-name-inp" for="name">Назва</label>
-      </p-floatLabel>
-      <p-floatLabel class="date">
-        <p-calendar
-          formControlName="rangeDates"
-          selectionMode="range"
-          [readonlyInput]="true"
-          inputId="datepicker"
-          [style]="{width: '100%'}"
-          [showTime]="true"
-          [hourFormat]="24">
-        </p-calendar>
-        <label for="datepicker">Дата</label>
-      </p-floatLabel>
-    </div>
-    <p-divider></p-divider>
-    <div class="elem-row" fxLayout="row" fxLayoutAlign="space-between center">
-      <span fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="7px">
-        <p-checkbox formControlName="ticketChecked" [binary]="true" inputId="binary"/>
-        <label class="checkbox-label" for="binary">Участь за білетом</label>
-      </span>
-      @if (this.form.value.ticketChecked) {
-        <p-floatLabel class="ticket-info">
-          <input formControlName="ticketLink" class="ticket-info-inp" id="ticketInfo" type="text" pInputText>
-          <label class="ticket-info-lbl" for="ticketInfo">Де придбати</label>
-        </p-floatLabel>
-      }
-    </div>
-    <p-divider></p-divider>
-    <div class="elem-row" fxLayout="row" fxLayoutAlign="start center">
-      <p-floatLabel class="location-inp">
-        <input formControlName="location" class="location-inp" id="location" type="text" pInputText>
-        <label class="location-inp" for="location">Локація</label>
-      </p-floatLabel>
-    </div>
-    <p-divider></p-divider>
-    <div class="editor-row" fxFlex="1 auto" style="height: 100%;">
-      <p-editor formControlName="description" [style]="{ height: '150px' }"/>
-    </div>
-    <p-divider></p-divider>
-    <div fxLayout="row" fxLayoutAlign="space-between center">
-      <button pButton class="dialog-btn" label="Скасувати" (click)="showDialog()" severity="secondary"></button>
-      <button pButton class="dialog-btn" label="Додати" [disabled]="this.form.invalid" (click)="onSubmit()"></button>
-    </div>
-  </div>
-</p-dialog>
+<!--<p-dialog header="Нова подія" [modal]="true" [(visible)]="visible">-->
+<!--  <div [formGroup]="form" class="wrapper" fxLayout="column" fxLayoutGap="7px">-->
+<!--    <div class="elem-row" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">-->
+<!--      <p-floatLabel class="event-name">-->
+<!--        <input formControlName="title" class="event-name-inp" id="name" type="text" pInputText>-->
+<!--        <label class="event-name-inp" for="name">Назва</label>-->
+<!--      </p-floatLabel>-->
+<!--      <p-floatLabel class="date">-->
+<!--        <p-calendar-->
+<!--          formControlName="rangeDates"-->
+<!--          selectionMode="range"-->
+<!--          [readonlyInput]="true"-->
+<!--          inputId="datepicker"-->
+<!--          [style]="{width: '100%'}"-->
+<!--          [showTime]="true"-->
+<!--          [hourFormat]="24">-->
+<!--        </p-calendar>-->
+<!--        <label for="datepicker">Дата</label>-->
+<!--      </p-floatLabel>-->
+<!--    </div>-->
+<!--    <p-divider></p-divider>-->
+<!--    <div class="elem-row" fxLayout="row" fxLayoutAlign="space-between center">-->
+<!--      <span fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="7px">-->
+<!--        <p-checkbox formControlName="ticketChecked" [binary]="true" inputId="binary"/>-->
+<!--        <label class="checkbox-label" for="binary">Участь за білетом</label>-->
+<!--      </span>-->
+<!--      @if (this.form.value.ticketChecked) {-->
+<!--        <p-floatLabel class="ticket-info">-->
+<!--          <input formControlName="ticketLink" class="ticket-info-inp" id="ticketInfo" type="text" pInputText>-->
+<!--          <label class="ticket-info-lbl" for="ticketInfo">Де придбати</label>-->
+<!--        </p-floatLabel>-->
+<!--      }-->
+<!--    </div>-->
+<!--    <p-divider></p-divider>-->
+<!--    <div class="elem-row" fxLayout="row" fxLayoutAlign="start center">-->
+<!--      <p-floatLabel class="location-inp">-->
+<!--        <input formControlName="location" class="location-inp" id="location" type="text" pInputText>-->
+<!--        <label class="location-inp" for="location">Локація</label>-->
+<!--      </p-floatLabel>-->
+<!--    </div>-->
+<!--    <p-divider></p-divider>-->
+<!--    <div class="editor-row" fxFlex="1 auto" style="height: 100%;">-->
+<!--      <p-editor formControlName="description" [style]="{ height: '150px' }"/>-->
+<!--    </div>-->
+<!--    <p-divider></p-divider>-->
+<!--    <div fxLayout="row" fxLayoutAlign="space-between center">-->
+<!--      <button pButton class="dialog-btn" label="Скасувати" (click)="showDialog()" severity="secondary"></button>-->
+<!--      <button pButton class="dialog-btn" label="Додати" [disabled]="this.form.invalid" (click)="onSubmit()"></button>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</p-dialog>-->

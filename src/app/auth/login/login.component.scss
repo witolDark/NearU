@@ -1,3 +1,5 @@
+@use 'variables' as var;
+
 .page {
   display: flex;
   flex: 1;
@@ -10,7 +12,6 @@
   width: 100%;
   background: rgb(61,255,255);
   background: linear-gradient(90deg, rgba(61,255,255,0.2) 0%, rgba(0,26,255,0.2) 100%);
-  box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
 }
 
 .bg2 {
@@ -20,8 +21,8 @@
 }
 
 .login-label {
+  color: var.$primary-color;
   font-size: 70px;
-  color: white;
   position: absolute;
   top: 15%;
   left: 50%;
@@ -40,7 +41,9 @@ form {
   margin-bottom: 10%;
   align-items: center;
   background: #fff;
+  width: 300px;
   box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+  border-radius: 4px;
 }
 
 input {

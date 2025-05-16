@@ -10,15 +10,15 @@
   </div>
   <div class="card-content">
     <h1> {{ event?.title }} </h1>
-    <p-divider/>
-    <div class="location-row" fxLayoutAlign="start center" fxLayout="row" fxLayoutGap="20px">
-      <i class="fa-solid fa-location-dot"></i>
-      <h2>{{ event?.location }}</h2>
-    </div>
-    <p-divider/>
+<!--    <p-divider/>-->
+<!--    <div class="location-row" fxLayoutAlign="start center" fxLayout="row" fxLayoutGap="20px">-->
+<!--      <i class="fa-solid fa-location-dot"></i>-->
+<!--      <h2>{{ event?.location }}</h2>-->
+<!--    </div>-->
+<!--    <p-divider/>-->
     <span class="event-description"  [innerHTML]="event?.description"></span>
   </div>
   <div class="card-footer" [fxLayoutAlign]="event?.status === Status.INACTIVE ? 'space-between center' : 'end center'">
-    <button pButton label="Деталі" [routerLink]="['/main/details', event?._id]" class="detail-button"></button>
+    <button mat-raised-button [routerLink]="['/main/details', event?._id]">Деталі</button>
   </div>
 </div>

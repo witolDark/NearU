@@ -1,81 +1,27 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {FlexLayoutModule} from '@ngbracket/ngx-layout';
-import {AvatarModule} from 'primeng/avatar';
-import {MenuItem, MenuItemCommandEvent} from 'primeng/api';
-import {MenuModule} from 'primeng/menu';
-import {Button, ButtonDirective} from 'primeng/button';
-import {ToastModule} from 'primeng/toast';
-import {Router} from '@angular/router';
-import {CalendarModule} from 'primeng/calendar';
+import {Router, RouterLink} from '@angular/router';
 import {AuthService} from '../shared/services/auth/auth.service';
+import {MatButtonModule} from '@angular/material/button';
+import {MatMenuModule} from '@angular/material/menu';
 import {Role} from '../shared/enums/Role';
-import {DividerModule} from 'primeng/divider';
+import {MatToolbar} from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [
     FlexLayoutModule,
-    AvatarModule,
-    MenuModule,
-    Button,
-    ButtonDirective,
-    ToastModule,
-    CalendarModule,
-    DividerModule
+    RouterLink,
+    MatButtonModule,
+    MatMenuModule
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent implements OnInit {
-  menuItems: MenuItem[] | undefined;
+export class HeaderComponent {
 
-  constructor(protected router: Router, protected authService: AuthService) {
-  }
+  constructor(protected router: Router, protected authService: AuthService) {}
 
-  ngOnInit() {
-    this.menuItems = [
-      {
-        label: 'Профіль',
-        items: [
-          {
-            label: 'Мої події',
-            icon: 'fa-solid fa-list',
-            command: () => {
-              this.router.navigate(['/main/my']);
-            }
-          },
-          {
-            label: 'Налаштування',
-            icon: 'fa-solid fa-gear',
-            command: () => {
-              this.router.navigate(['/main/profile']);
-            }
-          },
-          {
-            label: 'Вийти',
-            icon: 'fa-solid fa-arrow-right-from-bracket',
-            command: () => {
-              this.authService.logout();
-            }
-          }
-        ]
-      }
-    ];
-
-    if (this.authService.user?.role === Role.ADMIN) {
-      this.menuItems.push({
-        label: 'Адміністратор',
-        items: [
-          {
-            label: 'Управління подіями',
-            icon: 'fa-solid fa-lock',
-            command: () => {
-              this.router.navigate(['/main/admin']);
-            }
-          }
-        ]
-      });
-    }
-  }
+  protected readonly Role = Role;
 }

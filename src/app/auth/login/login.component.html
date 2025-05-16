@@ -3,11 +3,15 @@
   <div class="bg2"></div>
   <span class="login-label">ВХІД</span>
   <form [formGroup]="form">
-    <input formControlName="email" pInputText placeholder="Електронна пошта"/>
-    <input formControlName="password" pInputText type="password" placeholder="Пароль"/>
+    <mat-form-field class="full-width">
+      <input matInput type="email" placeholder="example@gmail.com">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input matInput type="password" placeholder="Пароль">
+    </mat-form-field>
     <a href="">Забули пароль?</a>
-    <button pButton class="button-login" label="Увійти" [disabled]="form.invalid" (click)="onSubmit()"></button>
-    <button pButton type="button" class="button-register" [text]="true" label="Реєстрація" routerLink="/auth/register"></button>
-    <button pButton type="button" class="button-continue" [text]="true" label="Продовжити без входу" routerLink="/main/events"></button>
+    <button mat-raised-button class="full-width" (click)="onSubmit()" [disabled]="form.invalid">Увійти</button>
+    <button mat-button class="full-width" routerLink="/auth/register">Реєстрація</button>
+    <button mat-raised-button class="full-width" routerLink="/main/events">Продовжити без входу</button>
   </form>
 </div>

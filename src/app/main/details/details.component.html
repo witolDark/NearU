@@ -17,12 +17,12 @@
         <span>Поділитись</span>
       </button>
     </div>
-    <p-divider></p-divider>
+    <mat-divider></mat-divider>
     <main>
       <div class="prop-row" fxLayoutAlign="start center">
         <h1>{{ event?.title }}</h1>
       </div>
-      <p-divider></p-divider>
+      <mat-divider></mat-divider>
       <div class="prop-row" fxLayoutAlign="start center" fxLayout="row" fxLayoutGap="20px">
         <i class="fa-solid fa-location-dot"></i>
         <h2>{{ event?.location }}</h2>
@@ -31,13 +31,13 @@
         <span [innerHTML]="event?.description"></span>
       </div>
       @if (event?.ticketRequired) {
-        <p-divider></p-divider>
+        <mat-divider></mat-divider>
         <div class="prop-row" fxLayout="row" fxLayoutAlign="space-between center">
           <h2>Як прийняти участь?</h2>
           <h3>{{ event?.ticketUrl }}</h3>
         </div>
       }
-      <p-divider></p-divider>
+      <mat-divider></mat-divider>
     </main>
     <div class="prop-row" fxLayout="row" fxLayoutAlign="end center">
       <span fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">

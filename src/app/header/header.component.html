@@ -1,11 +1,5 @@
-<nav fxLayout="row" fxLayoutAlign="center center">
+<nav>
   <div class="content" fxLayout="row" fxLayoutAlign="space-between center">
-    <a routerLink="/main/events">
-      <span class="logo">
-          <span class="first-name">Near</span>
-          <span class="last-name">U</span>
-      </span>
-    </a>
     <span fxFlex></span>
     @if (authService.user?.isAuthorized) {
       @if (authService.user.role === 'admin') {
@@ -13,13 +7,27 @@
           Admin
         </div>
       }
-      <p-menu #menu [model]="menuItems" [popup]="true"/>
-      <button pButton class="profile" fxLayoutAlign="center center" (click)="menu.toggle($event)">
-        {{ this.authService.user?.name?.[0] }}
-      </button>
+      <button mat-raised-button [matMenuTriggerFor]="menu">Профіль</button>
     } @else if (!this.router.url.includes('auth')) {
       <button class="login-btn" routerLink="/auth/login">Увійти</button>
     }
   </div>
 </nav>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="/main/my">
+    <i class="menu-icon fa-solid fa-list"></i>Мої події
+  </button>
+  <button mat-menu-item routerLink="/main/profile">
+    <i class="menu-icon fa-solid fa-gear"></i>Налаштування
+  </button>
+  <button mat-menu-item (click)="authService.logout()">
+    <i class="menu-icon fa-solid fa-arrow-right-from-bracket"></i>Вийти
+  </button>
+  @if(authService.user?.role === Role.ADMIN) {
+    <button mat-menu-item routerLink="/main/admin">
+      <i class="menu-icon fa-solid fa-lock"></i>Адміністрування
+    </button>
+  }
+</mat-menu>
 
