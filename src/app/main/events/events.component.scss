@@ -30,23 +30,7 @@ app-event-card {
 }
 
 .new-event-btn {
-  border-radius: 0;
-  position: fixed;
   bottom: 80px;
   right: 20px;
-  background: limegreen;
-  border: none;
-  width: 250px;
-  height: 60px;
-  color: white;
-  font-size: 22px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.new-event-btn:hover {
-  background: darkgreen;
-  box-shadow: rgba(0, 0, 0, 0.3) 0 8px 24px;
-  cursor: pointer;
 }
 

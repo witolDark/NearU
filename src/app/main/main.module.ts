@@ -14,7 +14,12 @@ import {AdminPanelComponent} from './admin/admin-panel.component';
 import {NoEventsComponent} from './no-events/no-events.component';
 import {MatButtonModule} from "@angular/material/button";
 import {MatDivider} from '@angular/material/divider';
-import {MatLabel} from '@angular/material/form-field';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {NewEventComponent} from './new-event/new-event.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MapComponent} from '../shared/map/map.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
 @NgModule({
@@ -26,7 +31,8 @@ import {MatLabel} from '@angular/material/form-field';
     MyEventsComponent,
     EventCardComponent,
     AdminPanelComponent,
-    NoEventsComponent
+    NoEventsComponent,
+    NewEventComponent
   ],
   imports: [
     CommonModule,
@@ -36,10 +42,15 @@ import {MatLabel} from '@angular/material/form-field';
     ReactiveFormsModule,
     MatButtonModule,
     MatDivider,
-    MatLabel
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MapComponent,
+    MatDatepickerModule
   ],
   providers: [
-    provideHttpClient()
+    provideHttpClient(),
   ]
 })
 export class MainModule {

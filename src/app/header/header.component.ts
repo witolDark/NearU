@@ -5,7 +5,6 @@ import {AuthService} from '../shared/services/auth/auth.service';
 import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import {Role} from '../shared/enums/Role';
-import {MatToolbar} from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-header',

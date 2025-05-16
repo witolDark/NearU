@@ -1,9 +1,9 @@
-<nav>
+<nav fxLayoutAlign="center center">
   <div class="content" fxLayout="row" fxLayoutAlign="space-between center">
     <span fxFlex></span>
     @if (authService.user?.isAuthorized) {
       @if (authService.user.role === 'admin') {
-        <div class="admin" fxLayoutAlign="cente center">
+        <div class="admin" fxLayoutAlign="center center">
           Admin
         </div>
       }

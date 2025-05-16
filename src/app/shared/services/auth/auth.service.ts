@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {RegistrationPayload} from '../../models/registration-payload';
-import {catchError, tap, throwError} from 'rxjs';
+import {tap} from 'rxjs';
 import {UserStateModel} from '../../models/user-state-model';
 import {HttpClient} from '@angular/common/http';
 import {LoginPayload} from '../../models/login-payload';
@@ -45,6 +45,7 @@ export class AuthService {
   initAuthorization() {
     if (this.getAccessToken()) {
       this.user = {...jwtDecode<UserStateModel>(this.getAccessToken() as string), isAuthorized: true};
+      console.log('redirect')
       this.router.navigate(['/main/events']);
     }
   }

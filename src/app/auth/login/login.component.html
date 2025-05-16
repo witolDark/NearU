@@ -4,10 +4,10 @@
   <span class="login-label">ВХІД</span>
   <form [formGroup]="form">
     <mat-form-field class="full-width">
-      <input matInput type="email" placeholder="example@gmail.com">
+      <input matInput type="email" placeholder="example@gmail.com" formControlName="email">
     </mat-form-field>
     <mat-form-field class="full-width">
-      <input matInput type="password" placeholder="Пароль">
+      <input matInput type="password" placeholder="Пароль" formControlName="password">
     </mat-form-field>
     <a href="">Забули пароль?</a>
     <button mat-raised-button class="full-width" (click)="onSubmit()" [disabled]="form.invalid">Увійти</button>

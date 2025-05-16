@@ -5,6 +5,6 @@
     </div>
     <app-no-events *ngIf="events.length === 0"></app-no-events>
   @if (this.authService.user?.isAuthorized) {
-    <button mat-raised-button fxLayoutAlign="center center" (click)="showDialog()">Нова подія</button>
+    <button mat-raised-button class="new-event-btn fixed!" routerLink="/main/new">Нова подія</button>
   }
 </div>

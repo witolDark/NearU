@@ -3,23 +3,23 @@
   <div class="bg2"></div>
   <span class="login-label">РЕЄСТРАЦІЯ</span>
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <mat-form-field appearance="fill">
+    <mat-form-field class="full-width">
       <mat-label>Електронна пошта</mat-label>
       <input matInput formControlName="email" type="email" placeholder="example@gmail.com" />
     </mat-form-field>
-    <mat-form-field appearance="fill">
+    <mat-form-field class="full-width">
       <mat-label>Логін</mat-label>
       <input matInput formControlName="name" type="text" />
     </mat-form-field>
-    <mat-form-field appearance="fill">
+    <mat-form-field class="full-width">
       <mat-label>Пароль</mat-label>
       <input matInput formControlName="password" type="password" />
     </mat-form-field>
-    <mat-form-field appearance="fill">
+    <mat-form-field class="full-width">
       <mat-label>Підтвердження паролю</mat-label>
       <input matInput formControlName="password_confirmation" type="password" />
     </mat-form-field>
-    <button mat-raised-button [disabled]="form.invalid">Зареєструватись</button>
+    <button mat-raised-button class="full-width" [disabled]="form.invalid">Зареєструватись</button>
     <span class="login-rel">
       <span>Вже зареєстровані?</span>
       <a routerLink="/auth/login">Увійти</a>
