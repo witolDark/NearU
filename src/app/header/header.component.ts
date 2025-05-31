@@ -5,6 +5,10 @@ import {AuthService} from '../shared/services/auth/auth.service';
 import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import {Role} from '../shared/enums/Role';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {ProgressBarService} from '../shared/services/progress-bar.service';
+import {MatIconModule} from '@angular/material/icon';
+import {MatTooltip} from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-header',
@@ -13,14 +17,18 @@ import {Role} from '../shared/enums/Role';
     FlexLayoutModule,
     RouterLink,
     MatButtonModule,
-    MatMenuModule
+    MatMenuModule,
+    MatProgressBarModule,
+    MatIconModule,
+    MatTooltip
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
 
-  constructor(protected router: Router, protected authService: AuthService) {}
+  constructor(protected router: Router, protected authService: AuthService, protected progressBarService: ProgressBarService) {
+  }
 
   protected readonly Role = Role;
 }

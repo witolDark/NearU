@@ -34,5 +34,9 @@ export class EventCardComponent {
     }
   }
 
+  onCreateCalendarEvent() {
+
+  }
+
   protected readonly Status = Status;
 }

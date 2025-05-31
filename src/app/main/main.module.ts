@@ -5,7 +5,6 @@ import {EventsComponent} from './events/events.component';
 import {provideHttpClient} from '@angular/common/http';
 import {MainRoutingModule} from './main-routing.module';
 import {FlexLayoutModule} from '@ngbracket/ngx-layout';
-import {CreationDialogComponent} from './creation-dialog/creation-dialog.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {DetailsComponent} from './details/details.component';
 import {MyEventsComponent} from './my-events/my-events.component';
@@ -20,13 +19,16 @@ import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MapComponent} from '../shared/map/map.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatIconModule} from '@angular/material/icon';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatCardModule} from '@angular/material/card';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 @NgModule({
   declarations: [
     ProfileComponent,
     EventsComponent,
-    CreationDialogComponent,
     DetailsComponent,
     MyEventsComponent,
     EventCardComponent,
@@ -47,7 +49,11 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatButtonModule,
     MatCheckboxModule,
     MapComponent,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatIconModule,
+    MatTooltipModule,
+    MatCardModule,
+    MatProgressBarModule
   ],
   providers: [
     provideHttpClient(),

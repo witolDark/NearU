@@ -3,18 +3,12 @@
   width: 100%;
   position: relative;
   box-sizing: border-box;
+  padding: 20px;
 }
 
 app-event-card {
   width: 100%;
   min-width: 400px;
-}
-
-.card-container {
-  margin-top: 20px;
-  row-gap: 20px;
-  width: 60%;
-  box-sizing: border-box;
 }
 
 .toolbar {

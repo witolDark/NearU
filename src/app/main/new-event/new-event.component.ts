@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {EventService} from '../../shared/services/event/event.service';
 import {AuthService} from '../../shared/services/auth/auth.service';
+import {take} from 'rxjs';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-new-event',
@@ -21,13 +23,15 @@ export class NewEventComponent {
     ticketUrl: new FormControl('')
   })
 
-  constructor(private authService: AuthService, private eventService: EventService) {
+  constructor(private authService: AuthService, private eventService: EventService, private router: Router) {
   }
 
 
   onSubmit() {
     const data = this.EventForm.value;
-    this.eventService.addEvent({name: this.authService.user.name, ...data})
+    this.eventService.addEvent({creator: this.authService.user.name, ...data}).pipe(take(1)).subscribe(() => {
+      this.router.navigate(['main/events']);
+    });
   }
 
   onLocationChange(location: string) {
