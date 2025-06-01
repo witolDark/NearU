@@ -13,6 +13,7 @@ import {provideAnimationsAsync} from '@angular/platform-browser/animations/async
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import {MAT_MOMENT_DATE_ADAPTER_OPTIONS, MomentDateAdapter} from '@angular/material-moment-adapter';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 export const MOMENT_DATE_FORMAT = {
   parse: {
@@ -38,7 +39,8 @@ export const MOMENT_DATE_FORMAT = {
     ReactiveFormsModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatSnackBarModule
   ],
   providers: [
     provideClientHydration(),

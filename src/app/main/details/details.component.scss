@@ -8,22 +8,11 @@
 .container {
   width: 70vw;
   min-width: 900px;
-  height: auto;
-  background: rgb(61,255,255);
-  background: linear-gradient(90deg, rgba(61,255,255,0.05) 0%, rgba(0,26,255,0.05) 100%);
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  height: 70%;
+  //background: rgb(61,255,255);
+  //background: linear-gradient(90deg, rgba(61,255,255,0.05) 0%, rgba(0,26,255,0.05) 100%);
+  //box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   padding: 20px;
-}
-
-.back-btn {
-  font-size: 16px;
-  cursor: pointer;
-  background: transparent;
-  color: limegreen;
-  border: 2px solid limegreen;
-  padding: 10px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  height: 50px;
 }
 
 h1 {
@@ -35,19 +24,35 @@ h1 {
 
 .calendar {
   font-size: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.share-btn {
-  border: 2px cornflowerblue solid;
-  background: transparent;
-  color: cornflowerblue;
-  height: 50px;
-  font-size: 16px;
-  cursor: pointer;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+:host ::ng-deep .mat-mdc-card-header .mat-mdc-card-header-text {
+  display: none;
+}
+
+mat-card-content {
+  background: white;
+  border-radius: 20px;
+  margin: 10px;
   padding: 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+
+  h1 {
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
 }
 
 .prop-row {
   padding: 0 20px;
+}
+
+mat-divider {
+  margin: 10px 0;
 }

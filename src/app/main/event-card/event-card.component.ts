@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {EventPayload} from '../../shared/models/event-payload';
 import {Status} from '../../shared/enums/Status';
+import {createCalendarEvent} from '../../shared/util';
 
 @Component({
   selector: 'app-event-card',
@@ -11,6 +12,7 @@ export class EventCardComponent {
   @Input() event: EventPayload | undefined;
 
   eventStatus: Status;
+  protected readonly Status = Status;
 
   getStatusColor() {
     switch (this.event.status as string) {
@@ -35,8 +37,6 @@ export class EventCardComponent {
   }
 
   onCreateCalendarEvent() {
-
+    createCalendarEvent(this.event);
   }
-
-  protected readonly Status = Status;
 }

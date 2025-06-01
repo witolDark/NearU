@@ -1,6 +1,7 @@
 mat-card {
   padding: 20px;
   margin: 20px;
+  min-width: 800px;
 }
 
 mat-checkbox {
@@ -19,4 +20,8 @@ mat-checkbox {
 
 .time-field {
   width: 100px;
+}
+
+:host ::ng-deep .mat-button-toggle {
+  width: 50%;
 }

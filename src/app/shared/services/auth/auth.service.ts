@@ -45,7 +45,6 @@ export class AuthService {
   initAuthorization() {
     if (this.getAccessToken()) {
       this.user = {...jwtDecode<UserStateModel>(this.getAccessToken() as string), isAuthorized: true};
-      console.log('redirect')
       this.router.navigate(['/main/events']);
     }
   }

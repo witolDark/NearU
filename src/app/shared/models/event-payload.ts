@@ -6,7 +6,9 @@ export interface EventPayload {
   title: string;
   description: string;
   startDate: string;
+  startTime: string;
   endDate: string;
+  endTime: string;
   location: string;
   ticketRequired: boolean;
   ticketUrl?: string;

@@ -1,32 +1,31 @@
-<div class="page" fxLayout="column" fxLayoutAlign="start center">
-  <div class="container">
-    <div class="prop-row" fxLayout="row" fxLayoutAlign="space-between center">
-      <button (click)="goBack()" class="back-btn" fxLayout="row" fxLayoutAlign="center center"
-              fxLayoutGap="10px">
-        <i class="fa-solid fa-arrow-left"></i>
-        <span class="back-btn-text">Назад</span>
+<div class="page" fxLayout="column" fxLayoutAlign="center center">
+  <mat-card class="container">
+    <mat-card-header class="prop-row relative flex flex-row justify-between items-center">
+      <button mat-fab extended="true" (click)="goBack()">
+        <mat-icon>arrow_back</mat-icon>
+        Назад
       </button>
-      <span class="calendar" fxLayoutAlign="center center" fxLayoutGap="10px">
+      <span class="calendar absolute" fxLayoutAlign="center center" fxLayoutGap="10px">
         <i class="fa-regular fa-calendar"></i>
-        <span> {{ event?.startDate | date:'yyyy-MM-dd HH:mm' }}</span>
+        <span> {{ startDate | date:'yyyy-MM-dd HH:mm' }}</span>
         <span>-</span>
-        <span> {{ event?.endDate | date:'yyyy-MM-dd HH:mm' }}</span>
+        <span> {{ endDate | date:'yyyy-MM-dd HH:mm' }}</span>
       </span>
-      <button (click)="onShareClick()" class="share-btn" fxLayoutAlign="center center" fxLayoutGap="10px">
-        <i class="fa-solid fa-share"></i>
-        <span>Поділитись</span>
+      <button mat-fab extended="true" (click)="onShareClick()">
+        <mat-icon>share</mat-icon>
+        Поділитись
       </button>
-    </div>
-    <mat-divider></mat-divider>
-    <main>
+    </mat-card-header>
+    <mat-card-content class="flex flex-auto">
       <div class="prop-row" fxLayoutAlign="start center">
         <h1>{{ event?.title }}</h1>
       </div>
       <mat-divider></mat-divider>
       <div class="prop-row" fxLayoutAlign="start center" fxLayout="row" fxLayoutGap="20px">
         <i class="fa-solid fa-location-dot"></i>
-        <h2>{{ event?.location }}</h2>
+        <span>{{ event?.location }}</span>
       </div>
+      <mat-divider></mat-divider>
       <div class="prop-row">
         <span [innerHTML]="event?.description"></span>
       </div>
@@ -37,13 +36,22 @@
           <h3>{{ event?.ticketUrl }}</h3>
         </div>
       }
-      <mat-divider></mat-divider>
-    </main>
-    <div class="prop-row" fxLayout="row" fxLayoutAlign="end center">
+    </mat-card-content>
+    <mat-card-footer class="prop-row" fxLayout="row" fxLayoutAlign="space-between center">
+      <div fxLayout="row" fxLayoutGap="10px">
+        <button mat-fab extended="true" (click)="downloadIcsEvent({ title: event.title, description: event.description, location: event.location, start: combineDateAndTime(event.startDate, event.startTime), end: combineDateAndTime(event.endDate, event.endTime)})">
+          <mat-icon>download</mat-icon>
+          Файл події календаря
+        </button>
+        <button mat-fab extended="true" (click)="createCalendarEvent(event)">
+          <mat-icon>event</mat-icon>
+          Додати у Google Calendar
+        </button>
+      </div>
       <span fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
         <i class="fa-solid fa-user"></i>
         <span> {{ event?.creator }}</span>
       </span>
-    </div>
-  </div>
+    </mat-card-footer>
+  </mat-card>
 </div>
