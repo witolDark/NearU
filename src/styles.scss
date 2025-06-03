@@ -22,4 +22,14 @@ body {
   width: 100%;
 }
 
+.page {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 @import "tailwind.scss";

@@ -1,16 +1,9 @@
-.page {
-  height: 100%;
-  width: 100%;
-  position: relative;
-  box-sizing: border-box;
-}
-
 .bg1 {
   height: 500px;
   width: 100%;
   background: rgb(61,255,255);
   background: linear-gradient(90deg, rgba(61,255,255,0.2) 0%, rgba(0,26,255,0.2) 100%);
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
 }
 
 .bg2 {
@@ -34,7 +27,7 @@ form {
   transform: translate(-50%, -50%);
   padding: 30px;
   background: #fff;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
 }
 
 .profile-input {
@@ -54,12 +47,12 @@ form {
   color: white;
   border: none;
   font-weight: bold;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
   transition: box-shadow 0.3s ease, background 0.3s ease, transform 0.3s ease;
 }
 
 .save-btn:hover {
-  box-shadow: rgba(149, 157, 165, 0.6) 0px 8px 24px;
+  box-shadow: rgba(149, 157, 165, 0.6) 0 8px 24px;
   background: limegreen;
   transform: scale(1.05);
 }
