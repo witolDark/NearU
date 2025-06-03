@@ -7,11 +7,22 @@
       <mat-card-content fxLayout="column">
         <mat-label>Назва події</mat-label>
         <mat-form-field appearance="outline">
-          <input matInput placeholder="Назва події" formControlName="title">
+          <mat-label>Назва</mat-label>
+          <input matInput formControlName="title">
         </mat-form-field>
         <mat-label>Опис події</mat-label>
         <mat-form-field appearance="outline">
-          <textarea matInput placeholder="Опис" formControlName="description"></textarea>
+          <mat-label>Опис</mat-label>
+          <textarea matInput formControlName="description"></textarea>
+        </mat-form-field>
+        <mat-label>Категорія події</mat-label>
+        <mat-form-field appearance="outline">
+          <mat-label>Категорія</mat-label>
+          <mat-select formControlName="categoryId">
+            @for (category of categories(); track category) {
+              <mat-option [value]="category._id">{{category.name}}</mat-option>
+            }
+          </mat-select>
         </mat-form-field>
         <mat-label>Дата та час</mat-label>
         <div class="date-row flex flex-row justify-between">

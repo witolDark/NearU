@@ -12,7 +12,7 @@ import {NewEventComponent} from './new-event/new-event.component';
 const routes: Routes = [
   {path: 'events', component: EventsComponent},
   {path: 'new', component: NewEventComponent, canActivate: [AuthGuard]},
-  {path: 'profile', component: ProfileComponent},
+  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
   {path: 'details/:id', component: DetailsComponent},
   {path: 'admin', component: AdminPanelComponent, canActivate: [AdminGuard]},
   {path: 'my', component: MyEventsComponent, canActivate: [AuthGuard]},

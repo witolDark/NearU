@@ -1,6 +1,6 @@
 <nav fxLayoutAlign="center center">
   <div class="content" fxLayout="row" fxLayoutAlign="space-between center">
-    <span class="title" role="button" tabindex="0" routerLink="main/events" (click)="this.progressBarService.changeMode(false)">NearU</span>
+    <span class="title" role="button" tabindex="0" routerLink="main/events">NearU</span>
     <span fxFlex></span>
     @if (authService.user?.isAuthorized) {
       @if (authService.user?.role === 'admin') {

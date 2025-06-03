@@ -1,6 +1,10 @@
 import {Injectable} from '@angular/core';
 import {EventPayload} from '../../models/event-payload';
 import {HttpClient} from '@angular/common/http';
+import {Category} from '../../models/category';
+import {take, tap} from 'rxjs';
+import {Group} from '../../models/group';
+import {ProgressBarService} from '../progress-bar.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +14,7 @@ export class EventService {
 
   apiUrl = 'http://localhost:5000/api';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private progressBarService: ProgressBarService) {
   }
 
   addEvent(data: {
@@ -37,6 +41,7 @@ export class EventService {
   }
 
   getEventById(id: string) {
+
     return this.http.get<EventPayload>(`${this.apiUrl}/events/${id}`);
   }
 
@@ -50,5 +55,18 @@ export class EventService {
 
   declineEvent(id: string) {
     return this.http.put<EventPayload[]>(`${this.apiUrl}/decline/${id}`, {});
+  }
+
+  getCategories() {
+    return this.http.get<Category[]>(`${this.apiUrl}/categories`).pipe(take(1));
+  }
+
+  getDiscussionsByEventId(id: string) {
+    this.progressBarService.changeMode(true);
+    return this.http.get<Group[]>(`${this.apiUrl}/groups/event/${id}`).pipe(take(1), tap(() => this.progressBarService.changeMode(false)));
+  }
+
+  createDiscussion(data: {eventId: string, userId:string, groupName: string, description: string}) {
+    return this.http.post(`${this.apiUrl}/groups`, {...data});
   }
 }

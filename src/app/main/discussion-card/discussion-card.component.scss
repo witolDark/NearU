@@ -1,0 +1,9 @@
+:host {
+  width: 70vw;
+}
+
+mat-card-content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

@@ -24,7 +24,7 @@
       <button mat-icon-button (click)="onCreateCalendarEvent()" matTooltip="Додати до календаря">
         <mat-icon>event</mat-icon>
       </button>
-      <button mat-icon-button [routerLink]="['/main/details', event?._id]" matTooltip="Деталі">
+      <button mat-icon-button [routerLink]="['/main/details', event?.id]" matTooltip="Деталі">
         <mat-icon>arrow_forward</mat-icon>
       </button>
     </div>

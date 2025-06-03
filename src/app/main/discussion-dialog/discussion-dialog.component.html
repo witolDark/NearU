@@ -1,0 +1,17 @@
+<span class="title">Нове обговорення</span>
+<mat-dialog-content>
+  <form [formGroup]="DiscussionForm" class="flex flex-col gap-1">
+    <mat-form-field appearance="outline">
+      <mat-label>Тема</mat-label>
+      <input matInput formControlName="groupName">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Опис</mat-label>
+      <input matInput formControlName="description">
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Закрити</button>
+  <button mat-button (click)="onSubmit()" [disabled]="DiscussionForm.invalid">Створити</button>
+</mat-dialog-actions>

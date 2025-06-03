@@ -39,13 +39,12 @@ export class AuthService {
     localStorage.setItem('accessToken', res.accessToken);
     localStorage.setItem('refreshToken', res.refreshToken);
 
-    this.user = {email: res.user.email, name: res.user.name, role: res.user.role, isAuthorized: true};
+    this.user = {id: res.user._id, email: res.user.email, name: res.user.name, role: res.user.role, isAuthorized: true};
   }
 
   initAuthorization() {
     if (this.getAccessToken()) {
       this.user = {...jwtDecode<UserStateModel>(this.getAccessToken() as string), isAuthorized: true};
-      this.router.navigate(['/main/events']);
     }
   }
 

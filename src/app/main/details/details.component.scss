@@ -1,14 +1,16 @@
 .page {
-  height: 100%;
+  min-height: 100vh;
   width: 100%;
   position: relative;
   box-sizing: border-box;
+  padding: 40px 0;
 }
 
 .container {
   width: 70vw;
   min-width: 900px;
   height: 70%;
+  margin-top: 60px;
   //background: rgb(61,255,255);
   //background: linear-gradient(90deg, rgba(61,255,255,0.05) 0%, rgba(0,26,255,0.05) 100%);
   //box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -34,11 +36,10 @@ h1 {
 }
 
 mat-card-content {
-  background: white;
   border-radius: 20px;
   margin: 10px;
   padding: 10px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+  min-height: 400px;
 
   h1 {
     margin: 0;
@@ -55,4 +56,22 @@ mat-card-content {
 
 mat-divider {
   margin: 10px 0;
+}
+
+.discussion {
+  width: 70vw;
+  margin: 30px 0;
+
+  h1 {
+    font-size: 20px;
+    margin: 0;
+  }
+
+  &-header {
+    padding: 0 30px;
+  }
+
+  &-wrapper {
+    gap: 15px;
+  }
 }

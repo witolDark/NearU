@@ -24,6 +24,10 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatCardModule} from '@angular/material/card';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatSelectModule} from '@angular/material/select';
+import {DiscussionCardComponent} from './discussion-card/discussion-card.component';
+import { DiscussionDialogComponent } from './discussion-dialog/discussion-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -35,7 +39,9 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     EventCardComponent,
     AdminPanelComponent,
     NoEventsComponent,
-    NewEventComponent
+    NewEventComponent,
+    DiscussionCardComponent,
+    DiscussionDialogComponent
   ],
   imports: [
     CommonModule,
@@ -55,7 +61,9 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatTooltipModule,
     MatCardModule,
     MatProgressBarModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatSelectModule,
+    MatDialogModule
   ],
   providers: [
     provideHttpClient(),

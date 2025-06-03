@@ -1,8 +1,8 @@
 import {EventPayload} from './models/event-payload';
 
 export function createCalendarEvent(event: EventPayload) {
-  const startDate = toGoogleCalendarDateString(combineDateAndTime(event.startDate, event.startTime));
-  const endDate = toGoogleCalendarDateString(combineDateAndTime(event.endDate, event.endTime));
+  const startDate = toGoogleCalendarDateString(new Date(event.startDate));
+  const endDate = toGoogleCalendarDateString(new Date(event.endDate));
 
   const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE` +
     `&text=${encodeURIComponent(event.title)}` +
@@ -36,8 +36,8 @@ export function downloadIcsEvent(options: {
   title: string;
   description?: string;
   location?: string;
-  start: Date;
-  end: Date;
+  start: string;
+  end: string;
 }) {
   const pad = (n: number) => n.toString().padStart(2, '0');
 
@@ -56,8 +56,8 @@ PRODID:-//your-app//calendar-event//EN
 BEGIN:VEVENT
 UID:${Date.now()}@your-app
 DTSTAMP:${formatDate(new Date())}
-DTSTART:${formatDate(options.start)}
-DTEND:${formatDate(options.end)}
+DTSTART:${formatDate(new Date(options.start))}
+DTEND:${formatDate(new Date(options.end))}
 SUMMARY:${options.title}
 DESCRIPTION:${options.description || ''}
 LOCATION:${options.location || ''}

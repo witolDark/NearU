@@ -1,4 +1,4 @@
-<div class="page" fxLayout="column" fxLayoutAlign="center center">
+<div class="page flex flex-col items-center">
   <mat-card class="container">
     <mat-card-header class="prop-row relative flex flex-row justify-between items-center">
       <button mat-fab extended="true" (click)="goBack()">
@@ -7,9 +7,9 @@
       </button>
       <span class="calendar absolute" fxLayoutAlign="center center" fxLayoutGap="10px">
         <i class="fa-regular fa-calendar"></i>
-        <span> {{ startDate | date:'yyyy-MM-dd HH:mm' }}</span>
+        <span> {{ event?.startDate | date:'yyyy-MM-dd HH:mm' }}</span>
         <span>-</span>
-        <span> {{ endDate | date:'yyyy-MM-dd HH:mm' }}</span>
+        <span> {{ event?.endDate | date:'yyyy-MM-dd HH:mm' }}</span>
       </span>
       <button mat-fab extended="true" (click)="onShareClick()">
         <mat-icon>share</mat-icon>
@@ -39,7 +39,8 @@
     </mat-card-content>
     <mat-card-footer class="prop-row" fxLayout="row" fxLayoutAlign="space-between center">
       <div fxLayout="row" fxLayoutGap="10px">
-        <button mat-fab extended="true" (click)="downloadIcsEvent({ title: event.title, description: event.description, location: event.location, start: combineDateAndTime(event.startDate, event.startTime), end: combineDateAndTime(event.endDate, event.endTime)})">
+        <button mat-fab extended="true"
+                (click)="downloadIcsEvent({ title: event.title, description: event.description, location: event.location, start: event.startDate, end: event.endDate})">
           <mat-icon>download</mat-icon>
           Файл події календаря
         </button>
@@ -49,9 +50,24 @@
         </button>
       </div>
       <span fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
-        <i class="fa-solid fa-user"></i>
+        <mat-icon>person</mat-icon>
         <span> {{ event?.creator }}</span>
       </span>
     </mat-card-footer>
   </mat-card>
+  <mat-card class="discussion flex flex-col gap-3">
+    <div class="discussion-header flex flex-row items-center justify-between">
+      <h1>Обговорення</h1>
+      <button mat-mini-fab (click)="onDiscussionCreate()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </mat-card>
+  @if (discussions()) {
+    <div class="discussion-wrapper flex flex-col">
+      @for (discussion of discussions(); track discussion) {
+        <app-discussion-card [discussion]="discussion"></app-discussion-card>
+      }
+    </div>
+  }
 </div>

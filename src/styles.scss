@@ -3,6 +3,7 @@
 
 html {
   @include mat.all-component-colors(theme.$theme);
+  scrollbar-gutter: stable;
 }
 
 html, body {

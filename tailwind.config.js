@@ -1,11 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   corePlugins: {
-    preflight: false // disable preflight to avoid conflicts with main scss styles
+    preflight: false,
   },
-  content: ['./src/**/*.{html,ts,scss}'],
+  content: [
+    './src/**/*.{html,ts}',
+  ],
   theme: {
-    extend: {}
+    extend: {},
   },
-  plugins: []
+  plugins: [],
 };

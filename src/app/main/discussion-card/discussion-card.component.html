@@ -1,0 +1,18 @@
+<mat-card>
+  <mat-card-header class="flex justify-between items-center">
+    <span class="flex flex-row gap-2 items-center justify-center font-bold">
+      <mat-icon>forum</mat-icon>
+      {{ discussion.groupName }}
+    </span>
+    <span class="flex flex-row items-center justify-center">
+      <mat-icon class="mr-1">person</mat-icon>
+      <span>{{ discussion.userId.name}}</span>
+    </span>
+  </mat-card-header>
+  <mat-card-content>
+    {{ discussion.description }}
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-icon-button><mat-icon>arrow_forward</mat-icon></button>
+  </mat-card-actions>
+</mat-card>

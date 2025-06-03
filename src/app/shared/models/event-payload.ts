@@ -1,17 +1,18 @@
 import {Status} from '../enums/Status';
+import {Category} from './category';
 
 export interface EventPayload {
-  _id: string;
+  id: string;
   creator: string;
   title: string;
   description: string;
   startDate: string;
-  startTime: string;
   endDate: string;
-  endTime: string;
   location: string;
   ticketRequired: boolean;
+  rating?: number;
+  numberOfRatings?: number;
   ticketUrl?: string;
+  category: Category;
   status: Status;
-  __v?: number;
 }
