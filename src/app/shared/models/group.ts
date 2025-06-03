@@ -1,9 +1,9 @@
-import {UserStateModel} from './user-state-model';
+import {User} from './user-state-model';
 
 export interface Group {
   id: string;
   eventId: string;
-  userId: UserStateModel;
+  userId: User;
   groupName: string;
   description: string;
 }

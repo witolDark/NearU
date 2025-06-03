@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {RegistrationPayload} from '../../models/registration-payload';
 import {tap} from 'rxjs';
-import {UserStateModel} from '../../models/user-state-model';
+import {User} from '../../models/user-state-model';
 import {HttpClient} from '@angular/common/http';
 import {LoginPayload} from '../../models/login-payload';
 import {Router} from '@angular/router';
@@ -11,7 +11,7 @@ import {jwtDecode} from 'jwt-decode';
   providedIn: 'root'
 })
 export class AuthService {
-  user?: UserStateModel;
+  user?: User;
 
   apiUrl = 'http://localhost:5000/api/';
 
@@ -44,7 +44,7 @@ export class AuthService {
 
   initAuthorization() {
     if (this.getAccessToken()) {
-      this.user = {...jwtDecode<UserStateModel>(this.getAccessToken() as string), isAuthorized: true};
+      this.user = {...jwtDecode<User>(this.getAccessToken() as string), isAuthorized: true};
     }
   }
 

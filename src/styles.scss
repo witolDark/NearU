@@ -23,7 +23,7 @@ body {
 }
 
 .page {
-  min-height: 100vh;
+  min-height: calc(100vh - 140px);
   width: 100%;
   position: relative;
   box-sizing: border-box;

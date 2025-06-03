@@ -1,6 +1,6 @@
 import {Role} from '../enums/Role';
 
-export interface UserStateModel {
+export interface User {
   id: string;
   email: string;
   name: string;

@@ -1,0 +1,30 @@
+<div class="page">
+  <h1>{{ (group | async)?.groupName }}</h1>
+  <form class="form flex flex-row justify-center items-center" [formGroup]="CommentFormGroup">
+    <mat-form-field>
+      <mat-label>Напишіть що думаєте</mat-label>
+      <input matInput formControlName="text">
+    </mat-form-field>
+    <button mat-fab extended="true" (click)="onSubmit()"><mat-icon>arrow_upward</mat-icon>Надіслати</button>
+  </form>
+  <div class="comments-wrapper flex flex-col">
+    @for (comment of comments().reverse(); track comment) {
+      <div class="flex" [ngClass]="comment.user._id === userId ? 'justify-end' : 'justify-start'">
+        <div class="card">
+          <div class="header flex flex-row items-center">
+            <mat-icon>person</mat-icon>
+            @if(comment.user._id === userId) {
+              Ви
+            } @else {
+              {{ comment.user.name }}
+            }
+          </div>
+          <div class="content">
+            {{ comment.text }}
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>
+

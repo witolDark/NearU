@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Group} from '../../shared/models/group';
+import {Group} from '../../../shared/models/group';
 
 @Component({
   selector: 'app-discussion-card',

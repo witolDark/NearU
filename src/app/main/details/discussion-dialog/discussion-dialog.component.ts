@@ -1,9 +1,9 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {AuthService} from '../../shared/services/auth/auth.service';
-import {EventService} from '../../shared/services/event/event.service';
+import {AuthService} from '../../../shared/services/auth/auth.service';
+import {EventService} from '../../../shared/services/event/event.service';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {SnackBarService} from '../../shared/services/snack-bar.service';
+import {SnackBarService} from '../../../shared/services/snack-bar.service';
 
 @Component({
   selector: 'app-discussion-dialog',

@@ -2,9 +2,10 @@ import {Injectable} from '@angular/core';
 import {EventPayload} from '../../models/event-payload';
 import {HttpClient} from '@angular/common/http';
 import {Category} from '../../models/category';
-import {take, tap} from 'rxjs';
+import {map, take, tap} from 'rxjs';
 import {Group} from '../../models/group';
 import {ProgressBarService} from '../progress-bar.service';
+import {CommentResponse} from '../../models/comment';
 
 @Injectable({
   providedIn: 'root'
@@ -61,12 +62,25 @@ export class EventService {
     return this.http.get<Category[]>(`${this.apiUrl}/categories`).pipe(take(1));
   }
 
+  getGroupById(id: string) {
+    return this.http.get<Group>(`${this.apiUrl}/groups/${id}`).pipe(take(1));
+  }
+
   getDiscussionsByEventId(id: string) {
     this.progressBarService.changeMode(true);
     return this.http.get<Group[]>(`${this.apiUrl}/groups/event/${id}`).pipe(take(1), tap(() => this.progressBarService.changeMode(false)));
   }
 
-  createDiscussion(data: {eventId: string, userId:string, groupName: string, description: string}) {
+  createDiscussion(data: { eventId: string, userId: string, groupName: string, description: string }) {
     return this.http.post(`${this.apiUrl}/groups`, {...data});
+  }
+
+  getCommentsByGroupId(id: string) {
+    this.progressBarService.changeMode(true);
+    return this.http.get<CommentResponse>(`${this.apiUrl}/comments/group/${id}`).pipe(take(1), map(res => res.populatedComments), tap(() => this.progressBarService.changeMode(false)));
+  }
+
+  leaveComment(data: { userId: string, groupId: string, text: string }) {
+    return this.http.post(`${this.apiUrl}/groups/comments`, {...data});
   }
 }

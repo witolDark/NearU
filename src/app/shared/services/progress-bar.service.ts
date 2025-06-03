@@ -10,9 +10,11 @@ export class ProgressBarService {
   }
 
   changeMode(value?: boolean) {
-    if (value) {
-      this.progressBarActive = this.progressBarActive !== value;
-    } else {
+    if (typeof value === 'boolean' && this.progressBarActive === value) {
+      this.progressBarActive = value;
+    } else if (typeof value === 'boolean' && this.progressBarActive !== value) {
+      this.progressBarActive = !value;
+    } else if (value === undefined) {
       this.progressBarActive = !this.progressBarActive;
     }
   }

@@ -25,9 +25,11 @@ import {MatCardModule} from '@angular/material/card';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatSelectModule} from '@angular/material/select';
-import {DiscussionCardComponent} from './discussion-card/discussion-card.component';
-import { DiscussionDialogComponent } from './discussion-dialog/discussion-dialog.component';
+import {DiscussionCardComponent} from './details/discussion-card/discussion-card.component';
+import { DiscussionDialogComponent } from './details/discussion-dialog/discussion-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { DiscussionsComponent } from './discussions/discussions.component';
+import { CommentComponent } from './discussions/comment/comment.component';
 
 
 @NgModule({
@@ -41,7 +43,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     NoEventsComponent,
     NewEventComponent,
     DiscussionCardComponent,
-    DiscussionDialogComponent
+    DiscussionDialogComponent,
+    DiscussionsComponent,
+    CommentComponent
   ],
   imports: [
     CommonModule,

@@ -8,7 +8,7 @@ import {SnackBarService} from '../../shared/services/snack-bar.service';
 import {Group} from '../../shared/models/group';
 import {toSignal} from '@angular/core/rxjs-interop';
 import {MatDialog} from '@angular/material/dialog';
-import {DiscussionDialogComponent} from '../discussion-dialog/discussion-dialog.component';
+import {DiscussionDialogComponent} from './discussion-dialog/discussion-dialog.component';
 import {filter, take} from 'rxjs';
 
 @Component({
