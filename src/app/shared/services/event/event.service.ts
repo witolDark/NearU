@@ -34,6 +34,10 @@ export class EventService {
     return this.http.post(`${this.apiUrl}/events`, {...data});
   }
 
+  deleteEvent(id: string) {
+    return this.http.delete(`${this.apiUrl}/events/${id}`);
+  }
+
   getEvents() {
     return this.http.get<EventPayload[]>(`${this.apiUrl}/events`);
   }
@@ -83,6 +87,10 @@ export class EventService {
 
   leaveComment(data: { userId: string, groupId: string, text: string }) {
     return this.http.post(`${this.apiUrl}/groups/comments`, {...data});
+  }
+
+  deleteComment(data: { commentId: string, userId: string }) {
+    return this.http.delete(`${this.apiUrl}/comments/${data.commentId}?userId=${data.userId}`);
   }
 
   rateEvent(data: { eventId: string, userId: string, rating: number, text: string }) {

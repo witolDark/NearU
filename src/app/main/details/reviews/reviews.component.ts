@@ -20,7 +20,7 @@ export class ReviewsComponent {
   userRating = signal<number>(0);
   text = new FormControl(null, Validators.minLength(20));
 
-  constructor(private snackBarService: SnackBarService, private eventService: EventService, private route: ActivatedRoute, private authService: AuthService) {
+  constructor(private snackBarService: SnackBarService, private eventService: EventService, private route: ActivatedRoute, protected authService: AuthService) {
     this.eventId.set(this.route.snapshot.paramMap.get('id') ?? '');
 
     effect(() => {

@@ -1,14 +1,8 @@
-<div class="page">
-  <div *ngIf="events.length > 0" class="card-container" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="20px">
-    <div class="event-row" *ngFor="let event of events" fxLayout="row" fxLayoutAlign="center start">
-      <app-event-card class="card" [event]="event"></app-event-card>
-      <div class="control-panel" fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="center center">
-        <button mat-raised-button (click)="onPublish(event._id)">Опублікувати</button>
-        <button mat-raised-button (click)="onDecline(event._id)">Відхилити</button>
-      </div>
-    </div>
+<div class="page" style="margin-top: 40px">
+  <div *ngIf="events().length > 0" class="card-container" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="20px">
+      <app-event-card class="card" *ngFor="let event of events()" [event]="event" (update)="getPendingEvents()" (approve)="onPublish($event)" (decline)="onDecline($event)"></app-event-card>
   </div>
-  <div *ngIf="events.length === 0" fxLayoutAlign="center center">
-    <app-no-events *ngIf="events.length === 0"></app-no-events>
+  <div *ngIf="events().length === 0" fxLayoutAlign="center center">
+    <app-no-events></app-no-events>
   </div>
 </div>

@@ -1,3 +1,7 @@
+.page {
+  padding-top: 0;
+}
+
 .bg1 {
   height: 500px;
   width: 100%;
@@ -17,6 +21,8 @@
   position: absolute;
   top: 15%;
   left: 50%;
+  line-height: 1;
+  word-wrap: break-word;
   transform: translate(-50%, -50%);
 }
 

@@ -17,7 +17,7 @@ const routes: Routes = [
   {path: 'details/:id', component: DetailsComponent},
   {path: 'admin', component: AdminPanelComponent, canActivate: [AdminGuard]},
   {path: 'my', component: MyEventsComponent, canActivate: [AuthGuard]},
-  {path: 'discussion/:id', component: DiscussionsComponent}
+  {path: 'discussion/:id', component: DiscussionsComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({

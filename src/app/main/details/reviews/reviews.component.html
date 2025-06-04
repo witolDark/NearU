@@ -9,7 +9,7 @@
       </mat-panel-description>
     </mat-expansion-panel-header>
 
-    <div class="new-review flex flex-row items-center justify-start">
+    <div *ngIf="authService.user?.isAuthorized" class="new-review flex flex-row items-center justify-start">
       <mat-form-field class="review-input flex flex-auto">
         <mat-label>Відгук</mat-label>
         <input matInput [formControl]="text">

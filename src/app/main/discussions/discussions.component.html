@@ -11,13 +11,18 @@
     @for (comment of comments().reverse(); track comment) {
       <div class="flex" [ngClass]="comment.user._id === userId ? 'justify-end' : 'justify-start'">
         <div class="card">
-          <div class="header flex flex-row items-center">
-            <mat-icon>person</mat-icon>
-            @if(comment.user._id === userId) {
-              Ви
-            } @else {
-              {{ comment.user.name }}
-            }
+          <div class="header flex flex-row items-center justify-between">
+            <div class="flex flex-row">
+              <mat-icon>person</mat-icon>
+              @if(comment.user._id === userId) {
+                <span>Ви</span>
+              } @else {
+                <span>{{ comment.user.name }}</span>
+              }
+            </div>
+            <button *ngIf="comment.user._id === userId || authService.user.role === Role.ADMIN" mat-icon-button (click)="onDelete(comment.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
           </div>
           <div class="content">
             {{ comment.text }}

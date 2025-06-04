@@ -45,6 +45,10 @@ export class AuthService {
   initAuthorization() {
     if (this.getAccessToken()) {
       this.user = {...jwtDecode<User>(this.getAccessToken() as string), isAuthorized: true};
+
+      if (this.router.url.includes('auth')) {
+        this.router.navigate(['/']);
+      }
     }
   }
 

@@ -16,17 +16,31 @@
     </div>
     <span class="event-description" [innerHTML]="event?.description"></span>
   </mat-card-content>
-  <mat-card-actions class="card-footer" [fxLayoutAlign]="event?.status === Status.INACTIVE ? 'space-between center' : 'end center'">
+  <mat-card-actions class="card-footer flex flex-row justify-end" [class.!justify-between]="event.creator === authService.user?.name || authService.user?.role === Role.ADMIN">
+    <button mat-icon-button *ngIf="event.creator === authService.user?.name || authService.user?.role === Role.ADMIN" (click)="onDelete(event.id)" matTooltip="Видалити">
+      <mat-icon style="color: darkred">delete</mat-icon>
+    </button>
     <div fxLayout="row" fxLayoutGap="10px">
-      <button mat-icon-button (click)="onCreateCalendarEvent()" matTooltip="Експорт події календаря">
-        <mat-icon>download</mat-icon>
-      </button>
-      <button mat-icon-button (click)="onCreateCalendarEvent()" matTooltip="Додати до календаря">
-        <mat-icon>event</mat-icon>
-      </button>
+      <ng-container *ngIf="!isAdminView ; else adminView">
+        <button mat-icon-button (click)="onCreateCalendarEvent()" matTooltip="Експорт події календаря">
+          <mat-icon>download</mat-icon>
+        </button>
+        <button mat-icon-button (click)="onCreateCalendarEvent()" matTooltip="Додати до календаря">
+          <mat-icon>event</mat-icon>
+        </button>
+      </ng-container>
       <button mat-icon-button [routerLink]="['/main/details', event?.id]" matTooltip="Деталі">
         <mat-icon>arrow_forward</mat-icon>
       </button>
     </div>
   </mat-card-actions>
 </mat-card>
+
+<ng-template #adminView>
+  <button mat-icon-button (click)="onDecline(event.id)" matTooltip="Відхилити">
+    <mat-icon style="color: red">close</mat-icon>
+  </button>
+  <button mat-icon-button (click)="onApprove(event.id)" matTooltip="Опублікувати">
+    <mat-icon style="color: green">check</mat-icon>
+  </button>
+</ng-template>

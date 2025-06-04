@@ -1,5 +1,9 @@
 @use 'variables' as var;
 
+.page {
+  padding-top: 0;
+}
+
 .bg1 {
   height: 500px;
   width: 100%;
