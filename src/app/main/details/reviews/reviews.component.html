@@ -1,0 +1,29 @@
+<mat-accordion class="accordion">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Відгуки</mat-panel-title>
+      <mat-panel-description>
+        <mat-icon class="star">star</mat-icon>
+        {{ event?.rating.toFixed(2) }}
+        ({{ event?.numberOfRatings }})
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div class="new-review flex flex-row items-center justify-start">
+      <mat-form-field class="review-input flex flex-auto">
+        <mat-label>Відгук</mat-label>
+        <input matInput [formControl]="text">
+      </mat-form-field>
+      @for (star of [1,2,3,4,5]; track star) {
+        <mat-icon class="star-rate" [ngClass]="{ 'star-gray' : star > userRating(), 'star-gold' : star <= userRating() }" role="button" (click)="onRate(star)">star</mat-icon>
+      }
+      <button mat-fab extended="true" (click)="onApplyRate()" [disabled]="userRating() === 0 || text.invalid">Готово</button>
+    </div>
+
+    <div class="reviews-col flex flex-col">
+      @for (review of reviews(); track review) {
+        <app-review [review]="review"></app-review>
+      }
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

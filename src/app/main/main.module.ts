@@ -30,6 +30,9 @@ import { DiscussionDialogComponent } from './details/discussion-dialog/discussio
 import {MatDialogModule} from '@angular/material/dialog';
 import { DiscussionsComponent } from './discussions/discussions.component';
 import { CommentComponent } from './discussions/comment/comment.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { ReviewsComponent } from './details/reviews/reviews.component';
+import { ReviewComponent } from './details/reviews/review/review.component';
 
 
 @NgModule({
@@ -45,7 +48,9 @@ import { CommentComponent } from './discussions/comment/comment.component';
     DiscussionCardComponent,
     DiscussionDialogComponent,
     DiscussionsComponent,
-    CommentComponent
+    CommentComponent,
+    ReviewsComponent,
+    ReviewComponent
   ],
   imports: [
     CommonModule,
@@ -67,7 +72,8 @@ import { CommentComponent } from './discussions/comment/comment.component';
     MatProgressBarModule,
     MatButtonToggleModule,
     MatSelectModule,
-    MatDialogModule
+    MatDialogModule,
+    MatExpansionModule
   ],
   providers: [
     provideHttpClient(),

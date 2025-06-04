@@ -49,12 +49,13 @@
           Додати у Google Calendar
         </button>
       </div>
-      <span fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+      <span fxLayout="row" fxLayoutAlign="start center">
         <mat-icon>person</mat-icon>
         <span> {{ event?.creator }}</span>
       </span>
     </mat-card-footer>
   </mat-card>
+  <app-reviews [event]="event"></app-reviews>
   <mat-card class="discussion flex flex-col gap-3">
     <div class="discussion-header flex flex-row items-center justify-between">
       <h1>Обговорення</h1>

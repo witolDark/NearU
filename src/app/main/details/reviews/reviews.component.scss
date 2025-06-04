@@ -1,0 +1,41 @@
+:host {
+  margin-top: 20px;
+  width: 70vw;
+}
+
+.star {
+  color: orange;
+
+  &-gray {
+    color: gray;
+  }
+
+  &-gold {
+    color: orange;
+  }
+
+  &-rate {
+    font-size: 30px;
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      color: orange;
+      transform: scale(1.3);
+      cursor: pointer;
+    }
+  }
+}
+
+.new-review {
+  gap: 10px;
+}
+
+:host ::ng-deep .review-input .mat-mdc-form-field-subscript-wrapper {
+  display: none;
+}
+
+.reviews-col {
+  gap: 10px;
+}

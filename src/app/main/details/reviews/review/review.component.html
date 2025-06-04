@@ -1,0 +1,13 @@
+<mat-card>
+  <mat-card-header class="flex flex-row justify-between">
+    <span>{{ review.user.name }}</span>
+    <div class="stars-row flex flex-row">
+      @for (index of [1,2,3,4,5]; track index) {
+        <mat-icon [ngStyle]="{ color: index <= review.rating ? 'orange' : 'gray' }">star</mat-icon>
+      }
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    {{ review.text }}
+  </mat-card-content>
+</mat-card>

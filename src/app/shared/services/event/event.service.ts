@@ -6,6 +6,7 @@ import {map, take, tap} from 'rxjs';
 import {Group} from '../../models/group';
 import {ProgressBarService} from '../progress-bar.service';
 import {CommentResponse} from '../../models/comment';
+import {Review} from '../../models/review';
 
 @Injectable({
   providedIn: 'root'
@@ -82,5 +83,13 @@ export class EventService {
 
   leaveComment(data: { userId: string, groupId: string, text: string }) {
     return this.http.post(`${this.apiUrl}/groups/comments`, {...data});
+  }
+
+  rateEvent(data: { eventId: string, userId: string, rating: number, text: string }) {
+    return this.http.post(`${this.apiUrl}/review`, {...data});
+  }
+
+  getReviewsByEventId(id: string) {
+    return this.http.get<Review[]>(`${this.apiUrl}/reviews/event/${id}`);
   }
 }

@@ -42,10 +42,6 @@ export class NewEventComponent implements OnInit {
     });
   }
 
-  onChange() {
-    console.log('cahnge')
-  }
-
   onSubmit() {
     const data = this.EventForm.value;
     data.startDate = combineDateAndTime(data.startDate, data.startTime);
