@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Review} from '../../../../shared/models/review';
 
 @Component({
@@ -6,13 +6,6 @@ import {Review} from '../../../../shared/models/review';
   templateUrl: './review.component.html',
   styleUrl: './review.component.scss'
 })
-export class ReviewComponent implements OnInit {
+export class ReviewComponent {
   @Input() review: Review;
-  stars = [];
-
-  ngOnInit() {
-    for (let i = 0; i < this.review.rating; i++) {
-      this.stars.push(i); // cringe but still
-    }
-  }
 }
