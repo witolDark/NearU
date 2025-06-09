@@ -44,6 +44,7 @@ export class NewEventComponent implements OnInit {
 
   onSubmit() {
     const data = this.EventForm.value;
+    data.ticketRequired = !data.ticketRequired;
     data.startDate = combineDateAndTime(data.startDate, data.startTime);
     delete data.startTime;
     data.endDate = combineDateAndTime(data.endDate, data.endTime);

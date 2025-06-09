@@ -68,3 +68,13 @@ mat-divider {
     margin-bottom: 40px;
   }
 }
+
+h3 {
+  font-size: 20px;
+}
+
+.desc {
+  min-height: 200px;
+  max-height: 500px;
+  overflow-y: auto;
+}

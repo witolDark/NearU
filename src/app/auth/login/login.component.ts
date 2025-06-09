@@ -4,6 +4,7 @@ import {AuthService} from '../../shared/services/auth/auth.service';
 import {Router} from '@angular/router';
 import {LoginPayload} from '../../shared/models/login-payload';
 import {log} from 'node:util';
+import {SnackBarService} from '../../shared/services/snack-bar.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import {log} from 'node:util';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent implements OnInit {
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router, private snackBarService: SnackBarService) {
   }
 
   form!: FormGroup;
@@ -35,7 +36,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/main/events']);
       },
       error: () => {
-        alert('Логін або пароль неправильні.');
+        this.snackBarService.openSnackBar('Пошта чи пароль не вірні')
       },
     });
   }
