@@ -42,6 +42,7 @@ export class ReviewsComponent {
   }
 
   onApplyRate() {
+    this.authService.initAuthorization();
     const text = this.text.value;
     const userId = this.authService.user.id;
     const eventId = this.event.id;

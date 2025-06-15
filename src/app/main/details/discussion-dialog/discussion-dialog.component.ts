@@ -26,6 +26,7 @@ export class DiscussionDialogComponent implements OnInit {
   }
 
   onSubmit(): void {
+    this.authService.initAuthorization();
     const data = this.DiscussionForm.value;
     const userId = this.authService.user.id;
     this.eventService.createDiscussion({eventId: this.data, userId, ...data}).subscribe({

@@ -40,6 +40,7 @@ export class AuthService {
     localStorage.setItem('refreshToken', res.refreshToken);
 
     this.user = {id: res.user._id, email: res.user.email, name: res.user.name, role: res.user.role, isAuthorized: true};
+    this.router.navigate(['/main/events']);
   }
 
   initAuthorization() {
